@@ -39,19 +39,27 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    companion object {
+        var mOrderMessage = "No Order made"
+        const val EXTRA_MESSAGE = "com.pfariasmunoz.droidcafe.extra.MESSAGE"
+    }
+
     /**
      * Shows a message that the donut image was clicked.
      */
     fun showDonutOrder(view: View) {
-        toast(resources.getString(R.string.donut_order_message))
+        mOrderMessage = resources.getString(R.string.donut_order_message)
+        toast(mOrderMessage)
     }
 
     fun showIceCreamOrder(view: View) {
-        toast(resources.getString(R.string.ice_cream_order_message))
+        mOrderMessage = resources.getString(R.string.ice_cream_order_message)
+        toast(mOrderMessage)
     }
 
     fun showFroyoOrder(view: View) {
-        toast(resources.getString(R.string.froyo_order_message))
+        mOrderMessage = resources.getString(R.string.froyo_order_message)
+        toast(mOrderMessage)
     }
 
 }
