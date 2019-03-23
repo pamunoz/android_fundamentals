@@ -1,5 +1,6 @@
 package com.pfariasmunoz.droidcafe
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,8 +18,8 @@ class MainActivity : AppCompatActivity() {
         setSupportActionBar(toolbar)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val intent = Intent(this, OrderActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -52,4 +53,5 @@ class MainActivity : AppCompatActivity() {
     fun showFroyoOrder(view: View) {
         toast(resources.getString(R.string.froyo_order_message))
     }
+
 }
