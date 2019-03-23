@@ -19,6 +19,7 @@ class MainActivity : AppCompatActivity() {
 
         fab.setOnClickListener { view ->
             val intent = Intent(this, OrderActivity::class.java)
+            intent.putExtra(EXTRA_MESSAGE, mOrderMessage)
             startActivity(intent)
         }
     }
