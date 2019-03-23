@@ -38,7 +38,18 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+    /**
+     * Shows a message that the donut image was clicked.
+     */
     fun showDonutOrder(view: View) {
         toast(resources.getString(R.string.donut_order_message))
+    }
+
+    fun showIceCreamOrder(view: View) {
+        toast(resources.getString(R.string.ice_cream_order_message))
+    }
+
+    fun showFroyoOrder(view: View) {
+        toast(resources.getString(R.string.froyo_order_message))
     }
 }
