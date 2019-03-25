@@ -23,6 +23,10 @@
     <string name="rb_sameday_option">Same day messenger service</string>
     <string name="rb_nextday_option">Next day ground delivery</string>
     <string name="rb_pickup_option">Pick up</string>
+    <string name="action_contact">Contact</string>
+    <string name="action_order">Order</string>
+    <string name="action_status">Status</string>
+    <string name="action_favorites">Favorites</string>
 
 
 </resources>
