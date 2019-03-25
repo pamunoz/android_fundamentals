@@ -40,7 +40,9 @@ class MainActivity : AppCompatActivity() {
                 true
             }
             R.id.action_order -> {
-                toast(R.string.action_order_message)
+                val intent = Intent(this, OrderActivity::class.java)
+                intent.putExtra(EXTRA_MESSAGE, mOrderMessage)
+                startActivity(intent)
                 true
             }
             R.id.action_status -> {
