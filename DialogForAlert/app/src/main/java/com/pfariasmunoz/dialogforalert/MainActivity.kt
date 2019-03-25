@@ -17,10 +17,14 @@ class MainActivity : AppCompatActivity() {
         val builder: AlertDialog.Builder = AlertDialog.Builder(this).apply {
             title = "Alert"
             setMessage("Click OK to continue, or Cancel to stop:")
-            setPositiveButton("Ok") { dialog, which ->  
-
+            setPositiveButton("Ok") { _, _ ->
+                toast("Pressed Ok")
+            }
+            setNegativeButton("Cancel") {_, _ ->
+                toast("Pressed Cancel")
             }
         }
+        builder.show()
 
     }
 }
