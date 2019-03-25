@@ -8,6 +8,7 @@
         tools:context=".MainActivity">
 
     <EditText
+            android:id="@+id/et_phone_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Hello World!"
