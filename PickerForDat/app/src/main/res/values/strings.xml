@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Picker For Dat</string>
+    <string name="date_label">Hello World! Choose a date:</string>
+    <string name="btn_date">Date</string>
 </resources>
