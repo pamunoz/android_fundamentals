@@ -12,6 +12,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun showDatePicker(view: View) {
+        DatePickerFragment().show(supportFragmentManager, "datePicker")
+    }
 
+    companion object {
+        fun processDatePickerResult(year: Int, month: Int, day: Int) {
+
+        }
     }
 }
