@@ -16,13 +16,11 @@
 
 package com.example.android.droidcafeoptions
 
-import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.RadioButton
-import android.widget.TextView
-import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_order.*
 
 /**
  * This activity handles radio buttons for choosing a delivery method for an
@@ -41,10 +39,8 @@ class OrderActivity : AppCompatActivity() {
         setContentView(R.layout.activity_order)
 
         // Get the intent and its data.
-        val intent = intent
         val message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE)
-        val textView = findViewById<TextView>(R.id.order_textview)
-        textView.text = message
+        order_textview.text = message
     }
 
     /**
@@ -60,25 +56,15 @@ class OrderActivity : AppCompatActivity() {
         when (view.getId()) {
             R.id.sameday -> if (checked)
             // Same day service
-                displayToast(getString(R.string.same_day_messenger_service))
+                toast(R.string.same_day_messenger_service)
             R.id.nextday -> if (checked)
             // Next day delivery
-                displayToast(getString(R.string.next_day_ground_delivery))
+                toast(R.string.next_day_ground_delivery)
             R.id.pickup -> if (checked)
             // Pick up
-                displayToast(getString(R.string.pick_up))
+                toast(R.string.pick_up)
             else -> {
             }
         }// Do nothing.
-    }
-
-    /**
-     * Displays the actual message in a toast message.
-     *
-     * @param message Message to display.
-     */
-    fun displayToast(message: String) {
-        Toast.makeText(applicationContext, message,
-                Toast.LENGTH_SHORT).show()
     }
 }
