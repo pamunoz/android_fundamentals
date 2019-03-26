@@ -17,10 +17,29 @@ class MainActivity : AppCompatActivity() {
             addTab((tab_layout.newTab().setText(R.string.tab_label2)))
             addTab((tab_layout.newTab().setText(R.string.tab_label3)))
             // Set the tabs to fill the entire layout.
-            tab_layout.tabGravity = TabLayout.GRAVITY_FILL
-            // Use PagerAdapter to manage page views in fragments.
-            val adapter = PagerAdapter(supportFragmentManager, tab_layout.tabCount)
-            pager.adapter = adapter
+            tabGravity = TabLayout.GRAVITY_FILL
         }
+        // Use PagerAdapter to manage page views in fragments.
+        // Setting a listener for clicks.
+        pager.apply {
+            adapter = PagerAdapter(supportFragmentManager, tab_layout.tabCount)
+            addOnPageChangeListener(TabLayout.TabLayoutOnPageChangeListener(tab_layout))
+        }
+        tab_layout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener {
+            override fun onTabReselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabUnselected(tab: TabLayout.Tab?) {
+
+            }
+
+            override fun onTabSelected(tab: TabLayout.Tab?) {
+                if (tab != null) {
+                    pager.currentItem = tab.position
+                }
+            }
+
+        })
     }
 }
