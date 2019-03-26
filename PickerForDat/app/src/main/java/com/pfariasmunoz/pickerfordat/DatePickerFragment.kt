@@ -42,7 +42,7 @@ class DatePickerFragment : DialogFragment(), DatePickerDialog.OnDateSetListener 
     override fun onDateSet(datePicker: DatePicker?, year: Int, month: Int, day: Int) {
         // Use the current date as the default date in the picker.
         // Set the activity to the Main Activity.
-        MainActivity.processDatePickerResult(year, month, day)
+        (activity as MainActivity).processDatePickerResult(year, month, day)
     }
 
 
