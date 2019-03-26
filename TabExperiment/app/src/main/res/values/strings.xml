@@ -3,4 +3,7 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="first_tab">These are the top stories:</string>
+    <string name="second_tab">These are the top stories:</string>
+    <string name="third_tab">These are the top stories:</string>
 </resources>
