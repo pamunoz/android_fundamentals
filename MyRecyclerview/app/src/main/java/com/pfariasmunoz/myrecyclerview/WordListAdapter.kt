@@ -4,8 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import kotlinx.android.synthetic.main.wordlist_item.view.*
 import java.util.*
 
 class WordListAdapter(ctx: Context, private val wordList: LinkedList<String>): RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
@@ -20,9 +20,11 @@ class WordListAdapter(ctx: Context, private val wordList: LinkedList<String>): R
     override fun getItemCount() = wordList.size
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
-        (holder.itemView as TextView).text = wordList[position]
+        holder.textView.text = wordList[position]
     }
 
-    class WordViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
+    class WordViewHolder(view: View): RecyclerView.ViewHolder(view) {
+        val textView = view.tv_word!!
+    }
 
 }
