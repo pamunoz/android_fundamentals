@@ -7,8 +7,11 @@ import android.view.Menu
 import android.view.MenuItem
 
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    private val mWordList = LinkedList<String>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
