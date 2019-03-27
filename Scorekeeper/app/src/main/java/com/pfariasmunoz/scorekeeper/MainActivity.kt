@@ -2,6 +2,7 @@ package com.pfariasmunoz.scorekeeper
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
 import android.view.View
 import androidx.annotation.IntegerRes
 import kotlinx.android.synthetic.main.activity_main.*
@@ -42,5 +43,10 @@ class MainActivity : AppCompatActivity() {
                 tv_score_team_2.text = mScore.toString()
             }
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main_menu, menu)
+        return super.onCreateOptionsMenu(menu)
     }
 }
