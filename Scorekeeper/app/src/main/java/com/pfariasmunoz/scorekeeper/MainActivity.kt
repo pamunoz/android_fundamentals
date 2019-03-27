@@ -49,7 +49,14 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.main_menu, menu)
-        return super.onCreateOptionsMenu(menu)
+        // Change the label of the menu based on the state of the app.
+        val nightMode = AppCompatDelegate.getDefaultNightMode()
+        if(nightMode == AppCompatDelegate.MODE_NIGHT_YES){
+            menu?.findItem(R.id.night_mode)?.setTitle(R.string.day_mode)
+        } else{
+            menu?.findItem(R.id.night_mode)?.setTitle(R.string.night_mode)
+        }
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -62,7 +69,6 @@ class MainActivity : AppCompatActivity() {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
             }else {
                 AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-
             }
             // Recreate the activity for the theme change to take effect.
             recreate()
