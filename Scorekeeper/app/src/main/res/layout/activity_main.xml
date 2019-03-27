@@ -14,11 +14,13 @@
 
         <ImageButton
                 android:id="@+id/btn_dec_score_team_1"
+                android:background="@drawable/button_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_minus"
+                android:onClick="decreaseScore"
                 android:contentDescription="@string/cd_minus_button"/>
 
         <TextView android:layout_width="wrap_content"
@@ -37,11 +39,13 @@
 
         <ImageButton
                 android:id="@+id/btn_inc_score_team_1"
+                android:background="@drawable/button_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_plus"
+                android:onClick="increaseScore"
                 android:contentDescription="@string/cd_plus_button"/>
 
     </RelativeLayout>
@@ -56,6 +60,8 @@
                 android:layout_alignParentStart="true"
                 android:layout_centerVertical="true"
                 android:src="@drawable/ic_minus"
+                android:onClick="decreaseScore"
+                android:background="@drawable/button_background"
                 android:contentDescription="@string/cd_minus_button"/>
 
         <TextView android:layout_width="wrap_content"
@@ -75,9 +81,11 @@
         <ImageButton
                 android:id="@+id/btn_inc_score_team_2"
                 android:layout_width="wrap_content"
+                android:background="@drawable/button_background"
                 android:layout_height="wrap_content"
                 android:layout_alignParentEnd="true"
                 android:layout_centerVertical="true"
+                android:onClick="increaseScore"
                 android:src="@drawable/ic_plus"
                 android:contentDescription="@string/cd_plus_button"/>
 
