@@ -25,7 +25,7 @@
                   android:layout_height="wrap_content"
                   android:layout_alignParentTop="true"
                   android:layout_centerHorizontal="true"
-                  android:text="@string/team_1_name" style="@style/ScoreText"/>
+                  android:text="@string/team_1_name" style="@style/TeamText"/>
 
         <TextView
                 android:id="@+id/tv_score_team_1"
@@ -63,7 +63,7 @@
                   android:layout_height="wrap_content"
                   android:layout_alignParentTop="true"
                   android:layout_centerHorizontal="true"
-                  android:text="@string/team_2_name" style="@style/ScoreText"/>
+                  android:text="@string/team_2_name" style="@style/TeamText"/>
 
         <TextView
                 android:id="@+id/tv_score_team_2"
