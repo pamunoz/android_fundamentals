@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         for (i in 0..19) {
             mWordList.addLast("Word $i")
         }
-
         rv_words.adapter = WordListAdapter(this, mWordList)
         rv_words.layoutManager = LinearLayoutManager(this)
 

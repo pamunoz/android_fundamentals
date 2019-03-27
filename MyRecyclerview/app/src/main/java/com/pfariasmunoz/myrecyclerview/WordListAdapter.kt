@@ -23,7 +23,17 @@ class WordListAdapter(ctx: Context, private val wordList: LinkedList<String>): R
         holder.textView.text = wordList[position]
     }
 
-    class WordViewHolder(view: View): RecyclerView.ViewHolder(view) {
+    inner class WordViewHolder(view: View): RecyclerView.ViewHolder(view), View.OnClickListener {
+        init {
+            view.setOnClickListener(this)
+        }
+        override fun onClick(v: View?) {
+            // Get the position of the item that was clicked.
+            val element = wordList[layoutPosition]
+            wordList[layoutPosition] = "Clicked! $element"
+            notifyDataSetChanged()
+        }
+
         val textView = view.tv_word!!
     }
 
