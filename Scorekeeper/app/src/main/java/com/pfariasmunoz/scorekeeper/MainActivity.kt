@@ -75,4 +75,9 @@ class MainActivity : AppCompatActivity() {
         }
         return true
     }
+
+    companion object {
+        const val STATE_SCORE_1 = "Team 1 Score"
+        const val STATE_SCORE_2 = "Team 2 Score"
+    }
 }
