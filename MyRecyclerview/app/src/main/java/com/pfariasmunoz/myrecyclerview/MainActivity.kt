@@ -5,7 +5,6 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.google.android.material.snackbar.Snackbar
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.content_main.*
 import java.util.*
@@ -27,8 +26,10 @@ class MainActivity : AppCompatActivity() {
         rv_words.layoutManager = LinearLayoutManager(this)
 
         fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+            val wordListSize = mWordList.size
+            mWordList.addLast("+ Word $wordListSize")
+            (rv_words.adapter as WordListAdapter).notifyItemInserted(wordListSize)
+            rv_words.smoothScrollToPosition(wordListSize)
         }
     }
 
