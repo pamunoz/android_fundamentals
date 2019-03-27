@@ -11,19 +11,19 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    var mScore: Int = 0
+    private var mScore1: Int = 0
+    private var mScore2: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        recoverInstanceState(savedInstanceState)
     }
 
     fun increaseScore(view: View) {
-        mScore++
         setScoreText(view.id)
     }
     fun decreaseScore(view: View) {
-        mScore--
         setScoreText(view.id)
     }
 
@@ -33,16 +33,20 @@ class MainActivity : AppCompatActivity() {
     private fun setScoreText(@IntegerRes id: Int) {
         when(id) {
             R.id.btn_inc_score_team_1 -> {
-                tv_score_team_1.text = mScore.toString()
+                mScore1++
+                tv_score_team_1.text = mScore1.toString()
             }
             R.id.btn_inc_score_team_2 -> {
-                tv_score_team_2.text = mScore.toString()
+                mScore2++
+                tv_score_team_2.text = mScore1.toString()
             }
             R.id.btn_dec_score_team_1 -> {
-                tv_score_team_1.text = mScore.toString()
+                mScore1--
+                tv_score_team_1.text = mScore2.toString()
             }
             R.id.btn_dec_score_team_2 -> {
-                tv_score_team_2.text = mScore.toString()
+                mScore2--
+                tv_score_team_2.text = mScore2.toString()
             }
         }
     }
@@ -74,6 +78,24 @@ class MainActivity : AppCompatActivity() {
             recreate()
         }
         return true
+    }
+
+    override fun onSaveInstanceState(outState: Bundle?) {
+        // Save the scores
+        outState?.apply {
+            putInt(STATE_SCORE_1, mScore1)
+            putInt(STATE_SCORE_2, mScore2)
+        }
+        super.onSaveInstanceState(outState)
+    }
+
+    fun recoverInstanceState(savedInstanceState: Bundle?) {
+        if (savedInstanceState != null) {
+            mScore1 = savedInstanceState.getInt(STATE_SCORE_1)
+            tv_score_team_1.text = mScore1.toString()
+            mScore2 = savedInstanceState.getInt(STATE_SCORE_2)
+            tv_score_team_2.text = mScore2.toString()
+        }
     }
 
     companion object {
