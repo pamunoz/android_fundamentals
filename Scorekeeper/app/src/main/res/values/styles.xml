@@ -20,5 +20,8 @@
         <item name="android:src">@drawable/ic_minus</item>
         <item name="android:contentDescription">@string/cd_minus_button</item>
     </style>
+    <style name="ScoreText">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Headline</item>
+    </style>
 
 </resources>

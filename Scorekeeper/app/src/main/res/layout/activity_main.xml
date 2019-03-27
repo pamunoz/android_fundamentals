@@ -25,7 +25,7 @@
                   android:layout_height="wrap_content"
                   android:layout_alignParentTop="true"
                   android:layout_centerHorizontal="true"
-                  android:text="@string/team_1_name"/>
+                  android:text="@string/team_1_name" style="@style/ScoreText"/>
 
         <TextView
                 android:id="@+id/tv_score_team_1"
@@ -33,7 +33,7 @@
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:layout_height="wrap_content"
-                android:text="@string/zero_score"/>
+                android:text="@string/zero_score" style="@style/ScoreText"/>
 
         <ImageButton
                 android:id="@+id/btn_inc_score_team_1"
@@ -63,7 +63,7 @@
                   android:layout_height="wrap_content"
                   android:layout_alignParentTop="true"
                   android:layout_centerHorizontal="true"
-                  android:text="@string/team_2_name"/>
+                  android:text="@string/team_2_name" style="@style/ScoreText"/>
 
         <TextView
                 android:id="@+id/tv_score_team_2"
@@ -71,7 +71,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/zero_score"/>
+                android:text="@string/zero_score" style="@style/ScoreText"/>
 
         <ImageButton
                 android:id="@+id/btn_inc_score_team_2"
