@@ -17,6 +17,7 @@
 package com.example.android.materialme
 
 import android.content.Context
+import android.content.Intent
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -86,11 +87,20 @@ internal class SportsAdapter
      *
      * @param itemView The rootview of the list_item.xml layout file.
      */
-    (itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
+    (itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView), View.OnClickListener {
+
+        override fun onClick(v: View?) {
+            val sport = mSportsData[adapterPosition]
+            val detailIntent = Intent(mContext, DetailActivity::class.java).apply {
+                putExtra("title", sport.title)
+                putExtra("image_resource", sport.imageResource)
+            }
+            mContext.startActivity(detailIntent)
+        }
 
         init {
 
-            // Initialize the views.
+            itemView.setOnClickListener(this)
         }
 
         fun bindTo(currentSport: Sport) {
