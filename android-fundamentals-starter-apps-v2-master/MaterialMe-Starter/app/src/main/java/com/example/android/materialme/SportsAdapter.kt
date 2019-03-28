@@ -17,7 +17,7 @@
 package com.example.android.materialme
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,7 +37,7 @@ internal class SportsAdapter
  * @param context Context of the application.
  */
 (private val mContext: Context, // Member variables.
- private val mSportsData: ArrayList<Sport>) : RecyclerView.Adapter<SportsAdapter.ViewHolder>() {
+ private val mSportsData: ArrayList<Sport>) : androidx.recyclerview.widget.RecyclerView.Adapter<SportsAdapter.ViewHolder>() {
 
 
     /**
@@ -85,7 +85,7 @@ internal class SportsAdapter
      *
      * @param itemView The rootview of the list_item.xml layout file.
      */
-    (itemView: View) : RecyclerView.ViewHolder(itemView) {
+    (itemView: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(itemView) {
 
         init {
 

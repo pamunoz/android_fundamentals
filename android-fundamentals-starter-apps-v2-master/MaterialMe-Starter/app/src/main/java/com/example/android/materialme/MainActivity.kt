@@ -17,8 +17,7 @@
 package com.example.android.materialme
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.LinearLayoutManager
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 /***
@@ -43,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerView.apply {
             // Set the Layout Manager.
-            layoutManager = LinearLayoutManager(this@MainActivity)
+            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MainActivity)
             adapter = mAdapter
         }
 
