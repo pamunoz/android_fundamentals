@@ -38,6 +38,10 @@ data class Sport
          *
          * @return The info about the sport.
          */
-        val info: String)
+        val info: String,
+        /**
+         * an integer member variable to the Sport object that will contain the Drawable resource
+         */
+        val imageResource: Int)
 
 
