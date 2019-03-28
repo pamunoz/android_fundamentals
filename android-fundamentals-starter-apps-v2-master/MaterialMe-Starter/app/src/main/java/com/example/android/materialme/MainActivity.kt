@@ -19,6 +19,8 @@ package com.example.android.materialme
 import android.content.res.TypedArray
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.ItemTouchHelper
+import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
 
 /***
@@ -50,6 +52,19 @@ class MainActivity : AppCompatActivity() {
 
         // Get the data.
         initializeData()
+
+        val swipeCallback = ItemTouchHelper(
+                object : ItemTouchHelper.SimpleCallback(0,
+                        ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+            override fun onMove(recyclerView: RecyclerView,
+                                viewHolder: RecyclerView.ViewHolder,
+                                target: RecyclerView.ViewHolder) = false
+
+            override fun onSwiped(viewHolder: RecyclerView.ViewHolder,
+                                  direction: Int) {
+                mSportsData.removeAt(viewHolder.adapterPosition)
+            }
+        })
     }
 
     /**
