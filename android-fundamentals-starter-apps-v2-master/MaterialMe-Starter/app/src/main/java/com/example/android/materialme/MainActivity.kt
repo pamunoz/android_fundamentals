@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
 
 /***
  * Main Activity for the Material Me app, a mock sports news application
@@ -60,7 +61,13 @@ class MainActivity : AppCompatActivity() {
                         ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView,
                                 viewHolder: RecyclerView.ViewHolder,
-                                target: RecyclerView.ViewHolder) = false
+                                target: RecyclerView.ViewHolder) : Boolean {
+                val from = viewHolder.adapterPosition
+                val to = viewHolder.adapterPosition
+                Collections.swap(mSportsData, from, to)
+                mAdapter!!.notifyItemMoved(from, to)
+                return true
+            }
 
             override fun onSwiped(viewHolder: RecyclerView.ViewHolder,
                                   direction: Int) {
