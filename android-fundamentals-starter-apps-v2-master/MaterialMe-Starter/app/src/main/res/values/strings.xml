@@ -18,6 +18,7 @@
     <string name="title_placeholder">Title</string>
     <string name="news_placeholder">News</string>
     <string name="sports_info_placeholder">Here is some news</string>
+    <string name="cd_sport_image">Sport Image</string>
 
     <string-array name="sports_titles">
         <item>Baseball</item>
