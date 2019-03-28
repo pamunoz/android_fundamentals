@@ -23,7 +23,7 @@
             android:padding="8dp"
             android:text="@string/title_placeholder"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
-            android:layout_alignBottom="@id/img_sport_image"/>
+            android:layout_alignBottom="@id/img_sport_image_detail"/>
 
         <TextView
             android:id="@+id/tv_newsTitle_detail"
@@ -32,7 +32,7 @@
             android:padding="8dp"
             android:text="@string/news_placeholder"
             android:textColor="?android:textColorSecondary"
-            android:layout_below="@id/img_sport_image"/>
+            android:layout_below="@id/img_sport_image_detail"/>
 
         <TextView
             android:id="@+id/tv_subTitle_detail"
@@ -40,7 +40,7 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="@string/sport_detail"
-            android:layout_below="@id/newsTitle"/>
+            android:layout_below="@id/tv_newsTitle_detail"/>
 
     </RelativeLayout>
 </ScrollView>
