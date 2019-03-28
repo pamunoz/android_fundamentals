@@ -87,19 +87,15 @@ internal class SportsAdapter
      */
     (itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-        // Member Variables for the TextViews
-        private val mTitleText: TextView = itemView.title
-        private val mInfoText: TextView = itemView.subTitle
-
         init {
 
             // Initialize the views.
         }
 
         fun bindTo(currentSport: Sport) {
-            // Populate the textviews with data.
-            mTitleText.text = currentSport.title
-            mInfoText.text = currentSport.info
+            // Populate the textiews with data.
+            itemView.title.text = currentSport.title
+            itemView.subTitle.text = currentSport.info
 
         }
     }
