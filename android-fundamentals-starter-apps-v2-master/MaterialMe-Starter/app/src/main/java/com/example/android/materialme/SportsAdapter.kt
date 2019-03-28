@@ -22,6 +22,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.bumptech.glide.Glide
 import kotlinx.android.synthetic.main.list_item.view.*
 
 import java.util.ArrayList
@@ -96,6 +97,7 @@ internal class SportsAdapter
             // Populate the textiews with data.
             itemView.title.text = currentSport.title
             itemView.subTitle.text = currentSport.info
+            Glide.with(mContext).load(currentSport.imageResource).into(itemView.img_sport_image)
 
         }
     }
