@@ -16,6 +16,7 @@
 
 package com.example.android.materialme
 
+import android.content.res.TypedArray
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
@@ -62,11 +63,15 @@ class MainActivity : AppCompatActivity() {
         // Clear the existing data (to avoid duplication).
         mSportsData.clear()
 
+        val sportImageResources = resources.obtainTypedArray(R.array.sports_images)
+
         // Create the ArrayList of Sports objects with titles and
         // information about each sport.
         for (i in 0 until sportsList.size) {
-            mSportsData.add(Sport(sportsList[i], sportsInfo[i]))
+            mSportsData.add(Sport(sportsList[i], sportsInfo[i], sportImageResources.getResourceId(i, 0)))
         }
+
+        sportImageResources.recycle()
 
         // Notify the adapter of the change.
         mAdapter!!.notifyDataSetChanged()
