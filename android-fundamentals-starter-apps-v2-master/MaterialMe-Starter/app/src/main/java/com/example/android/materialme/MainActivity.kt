@@ -54,7 +54,9 @@ class MainActivity : AppCompatActivity() {
         initializeData()
 
         ItemTouchHelper(
-                object : ItemTouchHelper.SimpleCallback(0,
+                object : ItemTouchHelper.SimpleCallback(
+                        ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or
+                        ItemTouchHelper.DOWN or ItemTouchHelper.UP,
                         ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
             override fun onMove(recyclerView: RecyclerView,
                                 viewHolder: RecyclerView.ViewHolder,
