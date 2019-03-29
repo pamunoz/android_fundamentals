@@ -18,6 +18,7 @@ package com.example.android.materialme
 
 import android.content.res.TypedArray
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
@@ -100,6 +101,10 @@ class MainActivity : AppCompatActivity() {
 
         // Notify the adapter of the change.
         mAdapter!!.notifyDataSetChanged()
+    }
+
+    fun resetSports(view: View) {
+        
     }
 
 }
