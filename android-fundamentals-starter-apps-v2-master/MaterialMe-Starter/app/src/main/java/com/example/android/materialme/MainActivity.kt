@@ -44,10 +44,11 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize the adapter and set it to the RecyclerView.
         mAdapter = SportsAdapter(this, mSportsData)
+        val gridColumnCount = resources.getInteger(R.integer.grid_column_count)
 
         recyclerView.apply {
             // Set the Layout Manager.
-            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MainActivity)
+            layoutManager = androidx.recyclerview.widget.GridLayoutManager(this@MainActivity, gridColumnCount)
             adapter = mAdapter
         }
 
