@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun resetSports(view: View) {
-        
+
     }
 
 }
