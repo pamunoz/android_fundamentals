@@ -38,7 +38,8 @@
             android:padding="8dp"
             android:text="@string/title_placeholder"
             android:theme="@style/ThemeOverlay.AppCompat.Dark"
-            android:layout_alignBottom="@id/img_sport_image"/>
+            android:layout_alignBottom="@id/img_sport_image"
+            style="@style/SportsTitle"/>
 
         <TextView
             android:id="@+id/newsTitle"
@@ -47,7 +48,8 @@
             android:padding="8dp"
             android:text="@string/news_placeholder"
             android:textColor="?android:textColorSecondary"
-            android:layout_below="@id/img_sport_image"/>
+            android:layout_below="@id/img_sport_image"
+            style="@style/SportsDetailText"/>
 
         <TextView
             android:id="@+id/subTitle"
@@ -55,7 +57,8 @@
             android:layout_height="wrap_content"
             android:padding="8dp"
             android:text="@string/sports_info_placeholder"
-            android:layout_below="@id/newsTitle"/>
+            android:layout_below="@id/newsTitle"
+            style="@style/SportsDetailText"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
