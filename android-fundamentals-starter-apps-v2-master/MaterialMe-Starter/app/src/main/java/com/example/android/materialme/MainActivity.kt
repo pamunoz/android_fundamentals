@@ -44,10 +44,11 @@ class MainActivity : AppCompatActivity() {
 
         // Initialize the adapter and set it to the RecyclerView.
         mAdapter = SportsAdapter(this, mSportsData)
+        val gridColumnCount = resources.getInteger(R.integer.grid_column_count)
 
         recyclerView.apply {
             // Set the Layout Manager.
-            layoutManager = androidx.recyclerview.widget.LinearLayoutManager(this@MainActivity)
+            layoutManager = androidx.recyclerview.widget.GridLayoutManager(this@MainActivity, gridColumnCount)
             adapter = mAdapter
         }
 
@@ -59,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 object : ItemTouchHelper.SimpleCallback(
                         ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or
                         ItemTouchHelper.DOWN or ItemTouchHelper.UP,
-                        ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                        if (gridColumnCount < 2) (ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) else 0) {
             override fun onMove(recyclerView: RecyclerView,
                                 viewHolder: RecyclerView.ViewHolder,
                                 target: RecyclerView.ViewHolder) : Boolean {
