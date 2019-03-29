@@ -60,7 +60,7 @@ class MainActivity : AppCompatActivity() {
                 object : ItemTouchHelper.SimpleCallback(
                         ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT or
                         ItemTouchHelper.DOWN or ItemTouchHelper.UP,
-                        ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) {
+                        if (gridColumnCount < 2) (ItemTouchHelper.LEFT or ItemTouchHelper.RIGHT) else 0) {
             override fun onMove(recyclerView: RecyclerView,
                                 viewHolder: RecyclerView.ViewHolder,
                                 target: RecyclerView.ViewHolder) : Boolean {
