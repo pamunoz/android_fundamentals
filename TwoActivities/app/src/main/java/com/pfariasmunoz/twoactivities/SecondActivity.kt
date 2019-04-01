@@ -56,7 +56,7 @@ class SecondActivity : AppCompatActivity() {
 
     fun returnReply(view: View) {
         val returnIntent = Intent().apply {
-            putExtra(EXTRA_REPLY, et_main_reply.text.toString())
+            putExtra(EXTRA_REPLY, et_second_reply.text.toString())
         }
         setResult(Activity.RESULT_OK, returnIntent)
         Log.d(TAG, "End Second Activity")

@@ -2,8 +2,10 @@ package com.pfariasmunoz.twoactivities
 
 
 
-import androidx.test.core.app.ApplicationProvider
 import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.assertion.ViewAssertions.matches
+import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
 import androidx.test.espresso.matcher.ViewMatchers.withId
 //import androidx.test.runner.AndroidJUnit4
 import androidx.test.ext.junit.runners.AndroidJUnit4
@@ -36,6 +38,9 @@ class ActivityInputOutputTest {
     }
 
     @Test fun activityLaunch() {
-        onView(withId())
+        onView(withId(R.id.btn_main)).perform(click())
+        onView(withId(R.id.tv_second_message)).check(matches(isDisplayed()))
+        onView(withId(R.id.btn_second_reply)).perform(click())
+        onView(withId(R.id.tv_text_header_reply)).check(matches(isDisplayed()))
     }
 }

@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun launchSecondActivity(view: View) {
-        val message: String = et_main_reply.text.toString()
+        val message: String = et_main.text.toString()
         val mainIntent =  Intent(this, SecondActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
