@@ -4,9 +4,9 @@ package com.pfariasmunoz.twoactivities
 
 import androidx.test.espresso.Espresso.onView
 import androidx.test.espresso.action.ViewActions.click
+import androidx.test.espresso.action.ViewActions.typeText
 import androidx.test.espresso.assertion.ViewAssertions.matches
-import androidx.test.espresso.matcher.ViewMatchers.isDisplayed
-import androidx.test.espresso.matcher.ViewMatchers.withId
+import androidx.test.espresso.matcher.ViewMatchers.*
 //import androidx.test.runner.AndroidJUnit4
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -42,5 +42,11 @@ class ActivityInputOutputTest {
         onView(withId(R.id.tv_second_message)).check(matches(isDisplayed()))
         onView(withId(R.id.btn_second_reply)).perform(click())
         onView(withId(R.id.tv_text_header_reply)).check(matches(isDisplayed()))
+    }
+
+    @Test fun textInputOutput() {
+        onView(withId(R.id.et_main)).perform(typeText("This is a test."))
+        onView(withId(R.id.btn_main)).perform(click())
+        onView(withId(R.id.tv_message)).check(matches(withText("This is a test.")))
     }
 }
