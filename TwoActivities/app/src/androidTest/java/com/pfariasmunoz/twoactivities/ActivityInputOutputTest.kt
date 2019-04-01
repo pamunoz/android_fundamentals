@@ -3,6 +3,8 @@ package com.pfariasmunoz.twoactivities
 
 
 import androidx.test.core.app.ApplicationProvider
+import androidx.test.espresso.Espresso.onView
+import androidx.test.espresso.matcher.ViewMatchers.withId
 //import androidx.test.runner.AndroidJUnit4
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.platform.app.InstrumentationRegistry
@@ -31,5 +33,9 @@ class ActivityInputOutputTest {
         // Context of the app under test.
         val appContext = InstrumentationRegistry.getInstrumentation().targetContext
         assertEquals("com.pfariasmunoz.twoactivities", appContext.packageName)
+    }
+
+    @Test fun activityLaunch() {
+        onView(withId())
     }
 }
