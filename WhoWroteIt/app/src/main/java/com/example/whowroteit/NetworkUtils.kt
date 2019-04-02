@@ -6,8 +6,6 @@ import java.io.IOException
 import java.io.InputStreamReader
 import java.net.HttpURLConnection
 import java.net.URL
-import sun.text.normalizer.UTF16.append
-import jdk.nashorn.internal.runtime.ScriptingFunctions.readLine
 import java.io.InputStream
 
 
@@ -23,9 +21,9 @@ object NetworkUtils {
     private const val PRINT_TYPE = "printType"
 
 
-    fun getBookInfo(query: String): String {
-        val urlConnection: HttpURLConnection
-        var bookJSonString = ""
+    fun getBookInfo(query: String): String? {
+        var urlConnection: HttpURLConnection? = null
+        var bookJSonString: String? = null
 
         try {
             // Build the full query URI, limiting results to 10 items and
@@ -53,6 +51,8 @@ object NetworkUtils {
         } catch (e: IOException) {
             e.printStackTrace()
         } finally {
+            // Close the connection and the buffered reader.
+            urlConnection?.disconnect()
 
         }
         return bookJSonString
