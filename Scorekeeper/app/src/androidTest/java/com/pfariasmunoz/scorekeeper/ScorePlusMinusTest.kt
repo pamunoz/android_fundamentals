@@ -91,9 +91,7 @@ class ScorePlusMinusTest {
         textView2.check(matches(withText("0")))
     }
 
-    private fun childAtPosition(
-        parentMatcher: Matcher<View>, position: Int
-    ): Matcher<View> {
+    private fun childAtPosition(parentMatcher: Matcher<View>, position: Int): Matcher<View> {
 
         return object : TypeSafeMatcher<View>() {
             override fun describeTo(description: Description) {
