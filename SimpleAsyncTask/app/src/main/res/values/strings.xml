@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">SimpleAsyncTask</string>
+    <string name="tv_task_starting_message">I am ready to start work!</string>
+    <string name="btn_start_task_label">Start Task</string>
+    <string name="sleep_message">"Napping…"</string>
+</resources>
