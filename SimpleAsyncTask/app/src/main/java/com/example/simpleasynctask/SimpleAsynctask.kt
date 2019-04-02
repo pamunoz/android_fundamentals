@@ -26,4 +26,14 @@ class SimpleAsynctask(textView: TextView) : AsyncTask<Any, Any, String>() {
         return "Awake at last after sleeping for $s milliseconds"
     }
 
+    /**
+     *  The String parameter to this method is what you defined in the third parameter of your
+     *  AsyncTask class definition, and what your doInBackground() method returns.
+     *  Because mTextView is a weak reference, you have to deference it with the get() method
+     *  to get the underlying TextView object, and to call setText() on it
+     */
+    override fun onPostExecute(result: String?) {
+        mTextView.get()?.text = result
+    }
+
 }
