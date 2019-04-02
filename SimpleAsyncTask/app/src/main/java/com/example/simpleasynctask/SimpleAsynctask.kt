@@ -3,6 +3,7 @@ package com.example.simpleasynctask
 import android.os.AsyncTask
 import android.widget.TextView
 import java.lang.ref.WeakReference
+import java.util.*
 
 class SimpleAsynctask(textView: TextView) : AsyncTask<Any, Any, String>() {
 
@@ -12,7 +13,17 @@ class SimpleAsynctask(textView: TextView) : AsyncTask<Any, Any, String>() {
     private val mTextView: WeakReference<TextView> = WeakReference(textView)
 
     override fun doInBackground(vararg params: Any?): String {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // Generate a random number between 0 and 10
+        // Make the task take long enough that we have
+        // time to rotate the phone while it is running
+        val s = Random().nextInt(11) * 200L
+        try {
+            Thread.sleep(s)
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
+        }
+        // Return a String result
+        return "Awake at last after sleeping for $s milliseconds"
     }
 
 }
