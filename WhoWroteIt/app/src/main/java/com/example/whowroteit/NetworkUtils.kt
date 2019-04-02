@@ -28,7 +28,11 @@ object NetworkUtils {
                     .appendQueryParameter(MAX_RESULTS, "10")
                     .appendQueryParameter(PRINT_TYPE, "books")
                     .build()
-            val requestUrl = URL(builtUri.toString())
+            val requestURL = URL(builtUri.toString())
+            urlConnection = requestURL.openConnection() as HttpURLConnection
+            urlConnection.apply {
+                requestMethod = "GET"
+            }.connect()
         } catch (e: IOException) {
             e.printStackTrace()
         } finally {
