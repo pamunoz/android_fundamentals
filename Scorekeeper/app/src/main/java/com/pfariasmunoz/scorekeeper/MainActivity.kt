@@ -38,11 +38,11 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.btn_inc_score_team_2 -> {
                 mScore2++
-                tv_score_team_2.text = mScore1.toString()
+                tv_score_team_2.text = mScore2.toString()
             }
             R.id.btn_dec_score_team_1 -> {
                 mScore1--
-                tv_score_team_1.text = mScore2.toString()
+                tv_score_team_1.text = mScore1.toString()
             }
             R.id.btn_dec_score_team_2 -> {
                 mScore2--

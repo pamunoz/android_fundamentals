@@ -1,10 +1,10 @@
 package com.pfariasmunoz.twoactivities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    override fun onSaveInstanceState(outState: Bundle?) {
+    override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
         if (tv_text_header_reply.visibility == View.VISIBLE) {
             outState?.apply {
@@ -77,7 +77,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun launchSecondActivity(view: View) {
-        val message: String = et_main_reply.text.toString()
+        val message: String = et_main.text.toString()
         val mainIntent =  Intent(this, SecondActivity::class.java).apply {
             putExtra(EXTRA_MESSAGE, message)
         }
