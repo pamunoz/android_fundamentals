@@ -15,6 +15,10 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        // Restore TextView if there is a savedInstanceState
+        if (savedInstanceState != null) {
+            tv_task.text = savedInstanceState.getString(TEXT_STATE)
+        }
     }
 
     fun startTask(view: View) {
