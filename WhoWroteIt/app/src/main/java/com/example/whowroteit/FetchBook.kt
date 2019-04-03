@@ -39,7 +39,22 @@ class FetchBook(titleText: TextView, authorText: TextView): AsyncTask<String, Un
                 i++
             }
 
+            // If both are found display the result
+            if (title != null && authors != null) {
+                mTitleText.get()?.text = title
+                mAuthorText.get()?.text = authors
+            } else {
+                // If none are found, update the UI to show failed results
+                mTitleText.get()?.text = mTitleText.get()?.resources?.getString(R.string.no_result)
+                mAuthorText.get()?.text = ""
+
+            }
+
         } catch (e: JSONException) {
+            // If postExecute does not receive a proper JSONString,
+            // update the UI to show failed results
+            mTitleText.get()?.text = mTitleText.get()?.resources.getString(R.string.no_result)
+            mAuthorText.get()?.text = ""
             e.printStackTrace()
         }
 
