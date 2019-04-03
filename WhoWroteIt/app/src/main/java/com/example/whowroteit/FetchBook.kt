@@ -2,6 +2,10 @@ package com.example.whowroteit
 
 import android.os.AsyncTask
 import android.widget.TextView
+import org.json.JSONArray
+import org.json.JSONException
+import org.json.JSONObject
+import java.lang.Exception
 import java.lang.ref.WeakReference
 
 class FetchBook(titleText: TextView, authorText: TextView): AsyncTask<String, Unit, String>() {
@@ -13,5 +17,32 @@ class FetchBook(titleText: TextView, authorText: TextView): AsyncTask<String, Un
 
     override fun onPostExecute(result: String?) {
         super.onPostExecute(result)
+        try {
+            val itemsArray: JSONArray = JSONObject(result).getJSONArray("items")
+            var i = 0
+            var title: String? = null
+            var authors: String? = null
+            while (i < itemsArray.length() && (authors == null && title == null)) {
+                // Get the current item information
+                val book: JSONObject = itemsArray.getJSONObject(i)
+                val volumeInfo: JSONObject = book.getJSONObject("volumeInfo")
+
+                // try to get the author and title from the current item
+                // catch if either field is empty and move on
+                try {
+                    title = volumeInfo.getString("title")
+                    authors = volumeInfo.getString("authors")
+                } catch (e: Exception) {
+                    e.printStackTrace()
+                }
+                // Move to the next item
+                i++
+            }
+
+        } catch (e: JSONException) {
+            e.printStackTrace()
+        }
+
+
     }
 }
