@@ -20,6 +20,14 @@ class MainActivity : AppCompatActivity() {
             FetchBook(tv_titleText, tv_authorText).execute(queryString)
             tv_authorText.text = ""
             tv_titleText.text = resources.getString(R.string.loading)
+        } else {
+            if (queryString.isEmpty()) {
+                tv_authorText.text = ""
+                tv_titleText.text = resources.getString(R.string.no_search_term)
+            } else {
+                tv_authorText.text = ""
+                tv_titleText.text = resources.getString(R.string.no_network)
+            }
         }
     }
 
