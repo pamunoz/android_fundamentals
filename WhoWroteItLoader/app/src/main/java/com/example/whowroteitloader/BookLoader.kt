@@ -3,12 +3,15 @@ package com.example.whowroteitloader
 import android.content.Context
 import androidx.loader.content.AsyncTaskLoader
 
-class BookLoader(context: Context): AsyncTaskLoader<String>(context) {
+class BookLoader(context: Context, val queryString: String): AsyncTaskLoader<String>(context) {
 
-
+    override fun onStartLoading() {
+        super.onStartLoading()
+        forceLoad()
+    }
 
     override fun loadInBackground(): String? {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return NetworkUtils.getBookInfo(queryString)
     }
 
 }
