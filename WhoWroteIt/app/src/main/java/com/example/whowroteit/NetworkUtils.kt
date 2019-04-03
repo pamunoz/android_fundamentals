@@ -1,6 +1,7 @@
 package com.example.whowroteit
 
 import android.net.Uri
+import android.util.Log
 import java.io.BufferedReader
 import java.io.IOException
 import java.io.InputStreamReader
@@ -23,7 +24,7 @@ object NetworkUtils {
 
     fun getBookInfo(query: String): String? {
         var urlConnection: HttpURLConnection? = null
-        var bookJSonString: String? = null
+        var bookJSONString: String? = null
 
         try {
             // Build the full query URI, limiting results to 10 items and
@@ -46,7 +47,7 @@ object NetworkUtils {
             // Get the InputStream.
             val inputStream = urlConnection.inputStream
             //if (builder.length == 0) ""
-            bookJSonString = readInputStream(inputStream)
+            bookJSONString = readInputStream(inputStream)
 
         } catch (e: IOException) {
             e.printStackTrace()
@@ -55,7 +56,8 @@ object NetworkUtils {
             urlConnection?.disconnect()
 
         }
-        return bookJSonString
+        Log.d(LOG, bookJSONString)
+        return bookJSONString
     }
 
     private fun readInputStream(inputStream: InputStream): String? {
