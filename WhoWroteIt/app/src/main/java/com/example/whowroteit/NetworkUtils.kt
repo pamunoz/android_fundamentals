@@ -58,7 +58,7 @@ object NetworkUtils {
         return bookJSonString
     }
 
-    private fun readInputStream(inputStream: InputStream): String {
+    private fun readInputStream(inputStream: InputStream): String? {
         // Create a buffered reader from that input stream.
         val reader = BufferedReader(InputStreamReader(inputStream))
 
@@ -75,6 +75,6 @@ object NetworkUtils {
             // if you print out the completed buffer for debugging.
             builder.append("\n")
         }
-        return builder.toString()
+        return if (builder.isEmpty()) return null else builder.toString()
     }
 }
