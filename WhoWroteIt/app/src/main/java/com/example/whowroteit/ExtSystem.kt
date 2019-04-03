@@ -11,11 +11,13 @@ fun View.hideTheKeyBoard(context: Context) {
     inputManager.hideSoftInputFromWindow(this.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
 }
 
-fun Context.isNetworkConnected(context: Context): Boolean {
-    val manager: ConnectivityManager? = getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
-    var networkInfo: NetworkInfo? = null
-    if (manager != null) {
-        networkInfo = manager.activeNetworkInfo
+val Context.isNetworkConnected: Boolean
+    get() {
+        val manager: ConnectivityManager? = this.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        var networkInfo: NetworkInfo? = null
+        if (manager != null) {
+            networkInfo = manager.activeNetworkInfo
+        }
+        return (networkInfo != null && networkInfo.isConnected)
     }
-    return (networkInfo != null && networkInfo.isConnected)
-}
+        
