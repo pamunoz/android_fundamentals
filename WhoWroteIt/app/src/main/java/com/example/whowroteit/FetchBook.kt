@@ -9,9 +9,7 @@ class FetchBook(titleText: TextView, authorText: TextView): AsyncTask<String, Un
     private val mTitleText: WeakReference<TextView> = WeakReference(titleText)
     private val mAuthorText: WeakReference<TextView> = WeakReference(authorText)
 
-    override fun doInBackground(vararg params: String?): String {
-        return ""
-    }
+    override fun doInBackground(vararg params: String?) = NetworkUtils.getBookInfo(params[0]!!)
 
     override fun onPostExecute(result: String?) {
         super.onPostExecute(result)
