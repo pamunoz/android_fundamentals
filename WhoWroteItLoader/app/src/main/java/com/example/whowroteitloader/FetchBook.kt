@@ -64,6 +64,5 @@ class FetchBook(titleText: TextView, authorText: TextView): AsyncTask<String, Un
             e.printStackTrace()
         }
 
-
     }
 }
