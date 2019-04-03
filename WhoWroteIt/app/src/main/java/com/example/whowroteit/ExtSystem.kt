@@ -20,4 +20,3 @@ val Context.isNetworkConnected: Boolean
         }
         return (networkInfo != null && networkInfo.isConnected)
     }
-        
