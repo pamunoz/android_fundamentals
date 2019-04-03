@@ -16,5 +16,6 @@ class MainActivity : AppCompatActivity() {
     fun searchBooks(view: View) {
         // Get the search string from the input field.
         val queryString = et_bookInput.text.toString()
+        FetchBook(tv_titleText, tv_authorText).execute(queryString)
     }
 }
