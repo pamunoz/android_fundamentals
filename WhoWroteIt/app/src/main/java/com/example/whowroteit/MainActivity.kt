@@ -18,10 +18,10 @@ class MainActivity : AppCompatActivity() {
     fun searchBooks(view: View) {
         // Get the search string from the input field.
         val queryString = et_bookInput.text.toString()
-        val inputManager: InputMethodManager = getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-        inputManager.hideSoftInputFromWindow(view.windowToken, InputMethodManager.HIDE_NOT_ALWAYS)
+        view.hideTheKeyBoard(this)
         FetchBook(tv_titleText, tv_authorText).execute(queryString)
         tv_authorText.text = ""
         tv_titleText.text = resources.getString(R.string.loading)
     }
+
 }
