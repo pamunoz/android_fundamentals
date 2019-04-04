@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
-    private val mNotificationManager: NotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+    private var mNotificationManager: NotificationManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun sendNotification() {
         val notifyBuilder = getNotificationBuilder()
-        mNotificationManager.notify(NOTIFICATION_ID, notifyBuilder.build())
+        mNotificationManager?.notify(NOTIFICATION_ID, notifyBuilder.build())
     }
 
     companion object {
@@ -34,6 +34,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun createNotificationChannel() {
+        mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             // Create a Notification Channel
             val notificationChannel = NotificationChannel(
@@ -44,7 +45,7 @@ class MainActivity : AppCompatActivity() {
                 enableVibration(true)
                 description = "Notification from Mascot"
             }
-            mNotificationManager.createNotificationChannel(notificationChannel)
+            mNotificationManager?.createNotificationChannel(notificationChannel)
         }
     }
 
