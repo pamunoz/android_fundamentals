@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
+        private const val NOTIFICATION_ID = 0
     }
 
     fun createNotificationChannel() {
