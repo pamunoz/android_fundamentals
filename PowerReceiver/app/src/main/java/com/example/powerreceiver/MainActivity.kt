@@ -17,6 +17,7 @@ class MainActivity : AppCompatActivity() {
         val filter = IntentFilter().apply {
             addAction(Intent.ACTION_POWER_DISCONNECTED)
             addAction(Intent.ACTION_POWER_CONNECTED)
+            addAction(Intent.ACTION_HEADSET_PLUG)
         }
         // Register the receiver using the activity context.
         this.registerReceiver(mCustomReceiver, filter)
