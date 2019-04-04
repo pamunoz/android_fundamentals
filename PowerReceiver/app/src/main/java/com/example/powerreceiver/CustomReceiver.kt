@@ -7,6 +7,12 @@ import android.content.Intent
 class CustomReceiver : BroadcastReceiver() {
 
     override fun onReceive(context: Context, intent: Intent) {
-        val intentAction: String = intent.action
+        if (intent.action != null) {
+            when(intent.action) {
+                Intent.ACTION_POWER_DISCONNECTED -> context.toast( "Power Disconnected")
+                Intent.ACTION_POWER_CONNECTED -> context.toast("Power Connected")
+                else -> context.toast("Unknown Intent Action")
+            }
+        }
     }
 }
