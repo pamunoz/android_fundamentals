@@ -20,11 +20,14 @@ class MainActivity : AppCompatActivity() {
         }
         // Register the receiver using the activity context.
         this.registerReceiver(mCustomReceiver, filter)
+        LocalBroadcastManager.getInstance(this)
+            .registerReceiver(mCustomReceiver, IntentFilter(ACTION_CUSTOM_BROADCAST))
     }
 
     override fun onDestroy() {
         //Unregister the receiver
         this.unregisterReceiver(mCustomReceiver)
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(mCustomReceiver)
         super.onDestroy()
     }
 
