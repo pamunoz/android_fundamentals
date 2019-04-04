@@ -6,6 +6,7 @@ import android.content.Context
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.app.NotificationCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -19,10 +20,12 @@ class MainActivity : AppCompatActivity() {
         btn_notify.setOnClickListener {
             sendNotification()
         }
+        createNotificationChannel()
     }
 
-    fun sendNotification() {
-
+    private fun sendNotification() {
+        val notifyBuilder = getNotificationBuilder()
+        mNotificationManager.notify(NOTIFICATION_ID, notifyBuilder.build())
     }
 
     companion object {
@@ -30,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         private const val NOTIFICATION_ID = 0
     }
 
-    fun createNotificationChannel() {
+    private fun createNotificationChannel() {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             // Create a Notification Channel
             val notificationChannel = NotificationChannel(
@@ -44,4 +47,9 @@ class MainActivity : AppCompatActivity() {
             mNotificationManager.createNotificationChannel(notificationChannel)
         }
     }
+
+    private fun getNotificationBuilder(): NotificationCompat.Builder = NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID)
+        .setContentTitle("You've been notified!")
+        .setContentText("This is your notification text.")
+        .setSmallIcon(R.drawable.ic_android)
 }
