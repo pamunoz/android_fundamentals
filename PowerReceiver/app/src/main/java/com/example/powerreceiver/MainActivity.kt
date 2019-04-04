@@ -5,6 +5,7 @@ import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import androidx.localbroadcastmanager.content.LocalBroadcastManager
 
 class MainActivity : AppCompatActivity() {
 
@@ -28,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun sendCustomBroadcast(view: View) {
-
+        val customBroadcastIntent = Intent(ACTION_CUSTOM_BROADCAST)
+        LocalBroadcastManager.getInstance(this).sendBroadcast(customBroadcastIntent)
     }
 }
