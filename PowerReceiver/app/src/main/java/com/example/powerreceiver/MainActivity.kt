@@ -7,7 +7,7 @@ import android.os.Bundle
 
 class MainActivity : AppCompatActivity() {
 
-    val mCustomReceiver: CustomReceiver = CustomReceiver()
+    private val mCustomReceiver: CustomReceiver = CustomReceiver()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,5 +18,11 @@ class MainActivity : AppCompatActivity() {
         }
         // Register the receiver using the activity context.
         this.registerReceiver(mCustomReceiver, filter)
+    }
+
+    override fun onDestroy() {
+        //Unregister the receiver
+        this.unregisterReceiver(mCustomReceiver)
+        super.onDestroy()
     }
 }
