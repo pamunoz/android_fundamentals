@@ -9,9 +9,10 @@ class CustomReceiver : BroadcastReceiver() {
     override fun onReceive(context: Context, intent: Intent) {
         if (intent.action != null) {
             when(intent.action) {
-                Intent.ACTION_POWER_DISCONNECTED -> context.toast( "Power Disconnected")
-                Intent.ACTION_POWER_CONNECTED -> context.toast("Power Connected")
-                else -> context.toast("Unknown Intent Action")
+                Intent.ACTION_POWER_DISCONNECTED -> context.toast( R.string.power_disconnect_message)
+                Intent.ACTION_POWER_CONNECTED -> context.toast(R.string.power_connect_message)
+                ACTION_CUSTOM_BROADCAST -> context.toast(R.string.custom_broadcast_message)
+                else -> context.toast(R.string.unknown_intent_action)
             }
         }
     }

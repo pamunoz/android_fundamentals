@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">PowerReceiver</string>
     <string name="btn_send_broadcast_text">Send Custom Broadcast</string>
+    <string name="power_disconnect_message">Power Disconnected</string>
+    <string name="power_connect_message">Power Connected</string>
+    <string name="custom_broadcast_message">Custom Broadcast Received</string>
+    <string name="unknown_intent_action">Unknown Intent Action</string>
 </resources>
