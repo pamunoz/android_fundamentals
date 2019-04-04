@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 
 class MainActivity : AppCompatActivity() {
 
@@ -24,5 +25,9 @@ class MainActivity : AppCompatActivity() {
         //Unregister the receiver
         this.unregisterReceiver(mCustomReceiver)
         super.onDestroy()
+    }
+
+    fun sendCustomBroadcast(view: View) {
+
     }
 }
