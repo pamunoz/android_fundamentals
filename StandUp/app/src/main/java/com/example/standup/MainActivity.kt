@@ -8,6 +8,11 @@ import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
 
+    companion object {
+        const val NOTIFICATION_ID = 0
+        const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
+    }
+
     private var mNotificationManager: NotificationManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
