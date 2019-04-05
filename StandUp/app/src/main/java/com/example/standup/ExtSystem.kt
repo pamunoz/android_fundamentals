@@ -10,3 +10,6 @@ fun Context.toast(message: Any, duration: Int = Toast.LENGTH_SHORT) {
         is @IntegerRes Int -> Toast.makeText(this, this.resources.getString(message), duration).show()
     }
 }
+
+val isOreoOrHigher: Boolean
+ get() = android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O

@@ -25,4 +25,14 @@ class MainActivity : AppCompatActivity() {
             if (isChecked) toast(R.string.alarm_on_message) else toast(R.string.alarm_off_message)
         }
     }
+
+    /**
+     * Creates a Notification channel, for OREO and higher.
+     */
+    private fun createNotificationChannel() {
+        // Create a notification manager object.
+        mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        // Notification channels are only available in OREO and higher.
+        // So, add a check on SDK version.
+    }
 }
