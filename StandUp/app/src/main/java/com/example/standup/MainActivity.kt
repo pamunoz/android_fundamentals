@@ -27,6 +27,9 @@ class MainActivity : AppCompatActivity() {
 
         mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
+        val notifyIntent = Intent(this, AlarmReceiver::class.java)
+        val notifyPendingIntent = PendingIntent.getBroadcast(this, NOTIFICATION_ID, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+
         btn_alarm_toggle.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
                 deliverNotification(this@MainActivity)
