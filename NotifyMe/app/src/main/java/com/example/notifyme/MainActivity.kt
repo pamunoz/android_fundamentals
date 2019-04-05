@@ -24,11 +24,13 @@ class MainActivity : AppCompatActivity() {
         btn_update.setOnClickListener { updateNotification() }
         btn_cancel.setOnClickListener { cancelNotification() }
         createNotificationChannel()
+        setNotificationButtonState(isNotifyEnabled = true, isUpdateEnabled = false, isCancelEnabled = false)
     }
 
     private fun sendNotification() {
         val notifyBuilder = getNotificationBuilder()
         mNotificationManager?.notify(NOTIFICATION_ID, notifyBuilder.build())
+        setNotificationButtonState(isNotifyEnabled = false, isUpdateEnabled = true, isCancelEnabled = true)
     }
     private fun updateNotification() {
         val androidImage = BitmapFactory.decodeResource(resources, R.drawable.mascot_1)
@@ -37,9 +39,11 @@ class MainActivity : AppCompatActivity() {
             .bigPicture(androidImage)
             .setBigContentTitle("Notification Updated!"))
         mNotificationManager?.notify(NOTIFICATION_ID, notifyBuilder.build())
+        setNotificationButtonState(isNotifyEnabled = false, isUpdateEnabled = false, isCancelEnabled = true)
     }
     private fun cancelNotification() {
         mNotificationManager?.cancel(NOTIFICATION_ID)
+        setNotificationButtonState(isNotifyEnabled = true, isUpdateEnabled = false, isCancelEnabled = false)
     }
 
     companion object {
@@ -76,5 +80,11 @@ class MainActivity : AppCompatActivity() {
             .setDefaults(NotificationCompat.DEFAULT_ALL)
             .setAutoCancel(true)
             .setSmallIcon(R.drawable.ic_android)
+    }
+
+    private fun setNotificationButtonState(isNotifyEnabled: Boolean, isUpdateEnabled: Boolean, isCancelEnabled: Boolean) {
+        btn_notify.isEnabled = isNotifyEnabled
+        btn_update.isEnabled = isUpdateEnabled
+        btn_cancel.isEnabled = isCancelEnabled
     }
 }
