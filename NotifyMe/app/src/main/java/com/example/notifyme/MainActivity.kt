@@ -30,7 +30,9 @@ class MainActivity : AppCompatActivity() {
         mNotificationManager?.notify(NOTIFICATION_ID, notifyBuilder.build())
     }
     private fun updateNotification() {}
-    private fun cancelNotification() {}
+    private fun cancelNotification() {
+        mNotificationManager?.cancel(NOTIFICATION_ID)
+    }
 
     companion object {
         private const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
