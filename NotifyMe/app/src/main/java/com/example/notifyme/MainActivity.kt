@@ -2,7 +2,9 @@ package com.example.notifyme
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -49,8 +51,16 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun getNotificationBuilder(): NotificationCompat.Builder = NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID)
-        .setContentTitle("You've been notified!")
-        .setContentText("This is your notification text.")
-        .setSmallIcon(R.drawable.ic_android)
+    private fun getNotificationBuilder(): NotificationCompat.Builder {
+        val notificationIntent = Intent(this, MainActivity::class.java)
+        val notificationPendingIntent = PendingIntent.getActivities(this, NOTIFICATION_ID,
+            arrayOf(notificationIntent), PendingIntent.FLAG_UPDATE_CURRENT)
+
+        return NotificationCompat.Builder(this, PRIMARY_CHANNEL_ID)
+            .setContentTitle("You've been notified!")
+            .setContentText("This is your notification text.")
+            .setContentIntent(notificationPendingIntent)
+            .setAutoCancel(true)
+            .setSmallIcon(R.drawable.ic_android)
+    }
 }
