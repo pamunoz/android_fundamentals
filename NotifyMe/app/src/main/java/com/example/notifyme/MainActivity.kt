@@ -3,6 +3,7 @@ package com.example.notifyme
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
+import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.graphics.BitmapFactory
@@ -13,6 +14,12 @@ import androidx.core.app.NotificationCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        private const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
+        private const val NOTIFICATION_ID = 0
+        const val ACTION_UPDATE_NOTIFICATION = "com.example.notifyme.ACTION_UPDATE_NOTIFICATION"
+    }
 
     private var mNotificationManager: NotificationManager? = null
 
@@ -25,6 +32,12 @@ class MainActivity : AppCompatActivity() {
         btn_cancel.setOnClickListener { cancelNotification() }
         createNotificationChannel()
         setNotificationButtonState(isNotifyEnabled = true, isUpdateEnabled = false, isCancelEnabled = false)
+    }
+
+    private fun setNotificationButtonState(isNotifyEnabled: Boolean, isUpdateEnabled: Boolean, isCancelEnabled: Boolean) {
+        btn_notify.isEnabled = isNotifyEnabled
+        btn_update.isEnabled = isUpdateEnabled
+        btn_cancel.isEnabled = isCancelEnabled
     }
 
     private fun sendNotification() {
@@ -44,11 +57,6 @@ class MainActivity : AppCompatActivity() {
     private fun cancelNotification() {
         mNotificationManager?.cancel(NOTIFICATION_ID)
         setNotificationButtonState(isNotifyEnabled = true, isUpdateEnabled = false, isCancelEnabled = false)
-    }
-
-    companion object {
-        private const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
-        private const val NOTIFICATION_ID = 0
     }
 
     private fun createNotificationChannel() {
@@ -82,9 +90,10 @@ class MainActivity : AppCompatActivity() {
             .setSmallIcon(R.drawable.ic_android)
     }
 
-    private fun setNotificationButtonState(isNotifyEnabled: Boolean, isUpdateEnabled: Boolean, isCancelEnabled: Boolean) {
-        btn_notify.isEnabled = isNotifyEnabled
-        btn_update.isEnabled = isUpdateEnabled
-        btn_cancel.isEnabled = isCancelEnabled
+    inner class NotificationReceiver: BroadcastReceiver() {
+        override fun onReceive(context: Context?, intent: Intent?) {
+            updateNotification()
+        }
+
     }
 }
