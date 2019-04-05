@@ -19,9 +19,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        btn_notify.setOnClickListener {
-            sendNotification()
-        }
+        btn_notify.setOnClickListener { sendNotification() }
+        btn_update.setOnClickListener { updateNotification() }
+        btn_cancel.setOnClickListener { cancelNotification() }
         createNotificationChannel()
     }
 
@@ -29,6 +29,8 @@ class MainActivity : AppCompatActivity() {
         val notifyBuilder = getNotificationBuilder()
         mNotificationManager?.notify(NOTIFICATION_ID, notifyBuilder.build())
     }
+    private fun updateNotification() {}
+    private fun cancelNotification() {}
 
     companion object {
         private const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
