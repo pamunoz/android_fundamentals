@@ -6,6 +6,7 @@ import android.app.PendingIntent
 import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
+import android.content.IntentFilter
 import android.graphics.BitmapFactory
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
@@ -22,16 +23,23 @@ class MainActivity : AppCompatActivity() {
     }
 
     private var mNotificationManager: NotificationManager? = null
+    private val mReceiver: NotificationReceiver = NotificationReceiver()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        registerReceiver(mReceiver, IntentFilter(ACTION_UPDATE_NOTIFICATION))
         btn_notify.setOnClickListener { sendNotification() }
         btn_update.setOnClickListener { updateNotification() }
         btn_cancel.setOnClickListener { cancelNotification() }
         createNotificationChannel()
         setNotificationButtonState(isNotifyEnabled = true, isUpdateEnabled = false, isCancelEnabled = false)
+    }
+
+    override fun onDestroy() {
+        unregisterReceiver(mReceiver)
+        super.onDestroy()
     }
 
     private fun setNotificationButtonState(isNotifyEnabled: Boolean, isUpdateEnabled: Boolean, isCancelEnabled: Boolean) {
