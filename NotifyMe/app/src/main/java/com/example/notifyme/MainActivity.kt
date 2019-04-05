@@ -32,6 +32,11 @@ class MainActivity : AppCompatActivity() {
     }
     private fun updateNotification() {
         val androidImage = BitmapFactory.decodeResource(resources, R.drawable.mascot_1)
+        val notifyBuilder = getNotificationBuilder()
+        notifyBuilder.setStyle(NotificationCompat.BigPictureStyle()
+            .bigPicture(androidImage)
+            .setBigContentTitle("Notification Updated!"))
+        mNotificationManager?.notify(NOTIFICATION_ID, notifyBuilder.build())
     }
     private fun cancelNotification() {
         mNotificationManager?.cancel(NOTIFICATION_ID)
