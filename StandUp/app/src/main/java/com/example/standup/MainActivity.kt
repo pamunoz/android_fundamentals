@@ -2,7 +2,9 @@ package com.example.standup
 
 import android.app.NotificationChannel
 import android.app.NotificationManager
+import android.app.PendingIntent
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -48,5 +50,10 @@ class MainActivity : AppCompatActivity() {
             }
             mNotificationManager?.createNotificationChannel(notificationChannel)
         }
+    }
+
+    private fun deliverNotification(context: Context) {
+        val contentIntent = Intent(context, MainActivity::class.java)
+        val contentPendingIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
 }
