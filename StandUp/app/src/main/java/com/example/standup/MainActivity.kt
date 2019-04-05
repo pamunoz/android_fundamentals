@@ -16,9 +16,10 @@ class MainActivity : AppCompatActivity() {
     companion object {
         const val NOTIFICATION_ID = 0
         const val PRIMARY_CHANNEL_ID = "primary_notification_channel"
+        private var mNotificationManager: NotificationManager? = null
     }
 
-    private var mNotificationManager: NotificationManager? = null
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -61,17 +62,4 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun deliverNotification(context: Context) {
-        val contentIntent = Intent(context, MainActivity::class.java)
-        val contentPendingIntent = PendingIntent.getActivity(context, NOTIFICATION_ID, contentIntent, PendingIntent.FLAG_UPDATE_CURRENT)
-        val builder = NotificationCompat.Builder(context, PRIMARY_CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_stand_up)
-            .setContentTitle("Stand Up Alert")
-            .setContentText("You should stand up and walk around now!")
-            .setContentIntent(contentPendingIntent)
-            .setPriority(NotificationCompat.PRIORITY_HIGH)
-            .setAutoCancel(true)
-            .setDefaults(NotificationCompat.DEFAULT_ALL)
-        mNotificationManager?.notify(NOTIFICATION_ID, builder.build())
-    }
 }
