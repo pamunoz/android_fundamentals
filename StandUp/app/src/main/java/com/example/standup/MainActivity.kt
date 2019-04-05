@@ -1,7 +1,9 @@
 package com.example.standup
 
+import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.content.Context
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_main.*
@@ -34,5 +36,17 @@ class MainActivity : AppCompatActivity() {
         mNotificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
         // Notification channels are only available in OREO and higher.
         // So, add a check on SDK version.
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            // Create the NotificationChannel with all the parameters.
+            val notificationChannel = NotificationChannel(
+                PRIMARY_CHANNEL_ID, "Stand Up Notification",
+                NotificationManager.IMPORTANCE_HIGH).apply {
+                enableLights(true)
+                lightColor = Color.RED
+                enableVibration(true)
+                description = "Notifies every 15 to stand up and walk"
+            }
+            mNotificationManager?.createNotificationChannel(notificationChannel)
+        }
     }
 }
