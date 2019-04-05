@@ -1,5 +1,6 @@
 package com.example.standup
 
+import android.app.AlarmManager
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -8,6 +9,7 @@ import android.content.Intent
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.SystemClock
 import androidx.core.app.NotificationCompat
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -29,10 +31,13 @@ class MainActivity : AppCompatActivity() {
 
         val notifyIntent = Intent(this, AlarmReceiver::class.java)
         val notifyPendingIntent = PendingIntent.getBroadcast(this, NOTIFICATION_ID, notifyIntent, PendingIntent.FLAG_UPDATE_CURRENT)
+        val alarmManager = getSystemService(Context.ALARM_SERVICE) as AlarmManager
 
         btn_alarm_toggle.setOnCheckedChangeListener { _, isChecked ->
+            val repeatInterval = AlarmManager.INTERVAL_FIFTEEN_MINUTES
+            val triggerTime = SystemClock.elapsedRealtime() + repeatInterval
             if (isChecked) {
-                deliverNotification(this@MainActivity)
+                alarmManager.setInexactRepeating(AlarmManager.ELAPSED_REALTIME_WAKEUP, triggerTime, repeatInterval, notifyPendingIntent)
                 toast(R.string.alarm_on_message)
             } else {
                 //Cancel notification if the alarm is turned off
