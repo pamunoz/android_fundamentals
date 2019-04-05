@@ -41,6 +41,7 @@ class MainActivity : AppCompatActivity() {
                 toast(R.string.alarm_on_message)
             } else {
                 //Cancel notification if the alarm is turned off
+                alarmManager?.cancel(notifyPendingIntent)
                 mNotificationManager?.cancelAll()
                 toast(R.string.alarm_off_message)
             }
