@@ -40,6 +40,8 @@ class MainActivity : AppCompatActivity() {
 
     fun scheduleJob(view: View) {
 
+
+
         // Get the selected network option
         val selectedNetworkId = rg_network_options.checkedRadioButtonId
         val selectedNetworkOption = when(selectedNetworkId) {
@@ -58,7 +60,12 @@ class MainActivity : AppCompatActivity() {
             setRequiresCharging(sw_charging.isChecked)
         }
 
-        val constraintSet = (selectedNetworkOption != JobInfo.NETWORK_TYPE_NONE) or sw_charging.isChecked or sw_idle.isChecked
+        // Check if the user has changed the value of the seek bar
+        val seekBarSet = sb_deadline.progress > 0
+        // Set a deadline according to the seek bar
+        if (seekBarSet) builder.setOverrideDeadline(sb_deadline.progress * 1000L)
+
+        val constraintSet = (selectedNetworkOption != JobInfo.NETWORK_TYPE_NONE) or sw_charging.isChecked or sw_idle.isChecked or seekBarSet
         if (constraintSet) {
             val jobInfo: JobInfo = builder.build()
             mJobScheduler?.schedule(jobInfo)
@@ -67,8 +74,6 @@ class MainActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Please set at least one constraint", Toast.LENGTH_SHORT).show()
         }
-
-
     }
 
     fun cancelJobs(view: View) {
