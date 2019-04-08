@@ -9,4 +9,6 @@
     <string name="tv_requires_text_label">Requires: </string>
     <string name="sw_idle">Device Idle</string>
     <string name="sw_charging_text">Device charging</string>
+    <string name="tv_sb_label_text">Override Deadline:</string>
+    <string name="sb_progress_text">Not Set</string>
 </resources>
