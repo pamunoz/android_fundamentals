@@ -41,7 +41,7 @@ class NotificationJobService : JobService() {
         return false
     }
 
-    fun createNotificationChannel() {
+    private fun createNotificationChannel() {
         // Notification channels are only available in OREO and higher.
         // So, add a check on SDK version.
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
