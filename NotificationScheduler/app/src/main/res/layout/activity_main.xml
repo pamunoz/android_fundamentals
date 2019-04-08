@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+    <TextView
+            android:id="@+id/tv_network_options_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_network_options_text"
+            android:layout_margin="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+    <RadioGroup
+            android:id="@+id/rg_network_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="4dp">
+
+        <RadioButton
+                android:id="@+id/rb_no_network"
+                android:text="@string/rb_no_network_text"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <RadioButton
+                android:id="@+id/rb_any_network"
+                android:text="@string/rb_any_network_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <RadioButton
+                android:id="@+id/rb_wifi_network"
+                android:text="@string/rb_wifi_network_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RadioGroup>
+
+    <TextView
+            android:id="@+id/tv_requires"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_requires_text_label"
+            android:layout_margin="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="4dp">
+
+        <Switch
+                android:id="@+id/sw_idle"
+                android:text="@string/sw_idle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Switch
+                android:id="@+id/sw_charging"
+                android:text="@string/sw_charging_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+    android:orientation="horizontal">
+
+        <TextView
+                android:id="@+id/tv_seek_bar_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tv_sb_label_text"
+                android:layout_margin="4dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+        <TextView
+                android:id="@+id/tv_seek_bar_progress"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/sb_progress_text"
+                android:layout_margin="4dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+    </LinearLayout>
+    <SeekBar
+            android:id="@+id/sb_deadline"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+    android:layout_margin="4dp"/>
+
+    <Button
+            android:id="@+id/btn_schedule_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_schedule_job_text"
+            android:onClick="scheduleJob"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="4dp"/>
+    <Button
+            android:id="@+id/btn_cancel_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_cancel_jobs_text"
+            android:onClick="cancelJobs"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="4dp"/>
+
+</LinearLayout>
