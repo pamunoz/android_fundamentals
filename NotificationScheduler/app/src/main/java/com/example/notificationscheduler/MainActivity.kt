@@ -27,13 +27,9 @@ class MainActivity : AppCompatActivity() {
                 tv_seek_bar_progress.text = if (progress > 0) progress.toString() + "s" else "Not Set"
             }
 
-            override fun onStartTrackingTouch(seekBar: SeekBar?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {}
 
-            override fun onStopTrackingTouch(seekBar: SeekBar?) {
-                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
-            }
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {}
 
         })
     }
