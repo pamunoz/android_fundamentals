@@ -36,9 +36,13 @@ class MainActivity : AppCompatActivity() {
         // Create the job scheduler and the job info object
         mJobScheduler = getSystemService(Context.JOB_SCHEDULER_SERVICE) as JobScheduler
         val serviceName = ComponentName(packageName, NotificationJobService::class.java.name)
-        val builder = JobInfo.Builder(JOB_ID, serviceName)
-        builder.setRequiredNetworkType(selectedNetworkOption)
-        val constraintSet = selectedNetworkOption != JobInfo.NETWORK_TYPE_NONE
+        val builder = JobInfo.Builder(JOB_ID, serviceName).apply {
+            setRequiredNetworkType(selectedNetworkOption)
+            setRequiresDeviceIdle(sw_idle.isChecked)
+            setRequiresCharging(sw_charging.isChecked)
+        }
+
+        val constraintSet = (selectedNetworkOption != JobInfo.NETWORK_TYPE_NONE) or sw_charging.isChecked or sw_idle.isChecked
         if (constraintSet) {
             val jobInfo: JobInfo = builder.build()
             mJobScheduler?.schedule(jobInfo)
