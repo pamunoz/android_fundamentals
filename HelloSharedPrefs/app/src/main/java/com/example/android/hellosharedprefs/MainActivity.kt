@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
     private var mCount = 0
     // Current background color
     private var mColor: Int = 0
-    
+
     companion object {
         // Key for current count
         private const val COUNT_KEY = "count"
