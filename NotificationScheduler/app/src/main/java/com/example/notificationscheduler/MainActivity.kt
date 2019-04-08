@@ -7,6 +7,7 @@ import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.SeekBar
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -20,13 +21,28 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        sb_deadline.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar?, progress: Int, fromUser: Boolean) {
+                tv_seek_bar_progress.text = if (progress > 0) progress.toString() + "s" else "Not Set"
+            }
+
+            override fun onStartTrackingTouch(seekBar: SeekBar?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+            override fun onStopTrackingTouch(seekBar: SeekBar?) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+            }
+
+        })
     }
 
     fun scheduleJob(view: View) {
 
         // Get the selected network option
         val selectedNetworkId = rg_network_options.checkedRadioButtonId
-        var selectedNetworkOption = when(selectedNetworkId) {
+        val selectedNetworkOption = when(selectedNetworkId) {
             R.id.rb_no_network -> JobInfo.NETWORK_TYPE_NONE
             R.id.rb_any_network -> JobInfo.NETWORK_TYPE_ANY
             R.id.rb_wifi_network -> JobInfo.NETWORK_TYPE_UNMETERED
