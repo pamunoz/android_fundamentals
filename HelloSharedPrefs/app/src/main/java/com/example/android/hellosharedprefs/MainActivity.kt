@@ -15,14 +15,12 @@
  */
 package com.example.android.hellosharedprefs
 
-import android.content.Context
-import android.content.SharedPreferences
 import android.graphics.drawable.ColorDrawable
+import android.os.Bundle
 import android.support.v4.content.ContextCompat
 import android.support.v7.app.AppCompatActivity
-import android.os.Bundle
 import android.view.View
-import android.widget.TextView
+import androidx.core.content.edit
 import kotlinx.android.synthetic.main.activity_main.*
 
 /**
@@ -41,20 +39,18 @@ class MainActivity : AppCompatActivity() {
     private var mCount = 0
     // Current background color
     private var mColor: Int = 0
-    // Text view to display both count and color
-    //private var mShowCountTextView: TextView? = null
-
-    // Key for current count
-    private val COUNT_KEY = "count"
-    // Key for current color
-    private val COLOR_KEY = "color"
-
     // Shared preferences object
-    private var mPreferences: SharedPreferences? = null
+    //private var mPreferences: SharedPreferences? = null
 
-    // Name of shared preferences file
-    private val sharedPrefFile = "com.example.android.hellosharedprefs"
+    companion object {
+        // Key for current count
+        private const val COUNT_KEY = "count"
+        // Key for current color
+        private const val COLOR_KEY = "color"
+        // Name of shared preferences file
+//        private const val sharedPrefFile = "com.example.android.hellosharedprefs"
 
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -63,12 +59,12 @@ class MainActivity : AppCompatActivity() {
         mColor = ContextCompat.getColor(this,
                 R.color.default_background)
 
-        mPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
+        //mPreferences = getSharedPreferences(sharedPrefFile, Context.MODE_PRIVATE)
 
         // Restore preferences
-        mCount = mPreferences!!.getInt(COUNT_KEY, 0)
+        mCount = sharedPreferences.getInt(COUNT_KEY, 0)
         count_textview.text = String.format("%s", mCount)
-        mColor = mPreferences!!.getInt(COLOR_KEY, mColor)
+        mColor = sharedPreferences.getInt(COLOR_KEY, mColor)
         count_textview.setBackgroundColor(mColor)
     }
 
@@ -114,9 +110,7 @@ class MainActivity : AppCompatActivity() {
         count_textview.setBackgroundColor(mColor)
 
         // Clear preferences
-        val preferencesEditor = mPreferences!!.edit()
-        preferencesEditor.clear()
-        preferencesEditor.apply()
+        sharedPreferences.edit { clear() }
     }
 
     /**
@@ -125,9 +119,10 @@ class MainActivity : AppCompatActivity() {
     override fun onPause() {
         super.onPause()
 
-        val preferencesEditor = mPreferences!!.edit()
-        preferencesEditor.putInt(COUNT_KEY, mCount)
-        preferencesEditor.putInt(COLOR_KEY, mColor)
-        preferencesEditor.apply()
+        sharedPreferences.edit {
+            putInt(COUNT_KEY, mCount)
+            putInt(COLOR_KEY, mColor)
+        }
+
     }
 }
