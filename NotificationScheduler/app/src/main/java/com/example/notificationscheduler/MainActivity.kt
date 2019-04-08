@@ -38,10 +38,15 @@ class MainActivity : AppCompatActivity() {
         val serviceName = ComponentName(packageName, NotificationJobService::class.java.name)
         val builder = JobInfo.Builder(JOB_ID, serviceName)
         builder.setRequiredNetworkType(selectedNetworkOption)
-        val jobInfo: JobInfo = builder.build()
-        mJobScheduler?.schedule(jobInfo)
-        Toast.makeText(this, "Job Scheduled, job will run when " +
-                "the constraints are met.", Toast.LENGTH_SHORT).show();
+        val constraintSet = selectedNetworkOption != JobInfo.NETWORK_TYPE_NONE
+        if (constraintSet) {
+            val jobInfo: JobInfo = builder.build()
+            mJobScheduler?.schedule(jobInfo)
+            Toast.makeText(this, "Job Scheduled, job will run when " +
+                    "the constraints are met.", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Please set at least one constraint", Toast.LENGTH_SHORT).show()
+        }
 
 
     }
