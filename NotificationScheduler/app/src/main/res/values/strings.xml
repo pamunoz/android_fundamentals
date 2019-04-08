@@ -6,4 +6,7 @@
     <string name="rb_wifi_network_text">Wifi</string>
     <string name="btn_schedule_job_text">Schedule Job</string>
     <string name="btn_cancel_jobs_text">Cancel Jobs</string>
+    <string name="tv_requires_text_label">Requires: </string>
+    <string name="sw_idle">Device Idle</string>
+    <string name="sw_charging_text">Device charging</string>
 </resources>

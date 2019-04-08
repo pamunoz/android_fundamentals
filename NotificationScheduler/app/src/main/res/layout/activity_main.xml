@@ -40,6 +40,31 @@
                 android:layout_height="wrap_content"/>
 
     </RadioGroup>
+
+    <TextView
+            android:id="@+id/tv_requires"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/tv_requires_text_label"
+            android:layout_margin="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="4dp">
+
+        <Switch
+                android:id="@+id/sw_idle"
+                android:text="@string/sw_idle"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+        <Switch
+                android:id="@+id/sw_charging"
+                android:text="@string/sw_charging_text"
+                android:layout_width="wrap_content" android:layout_height="wrap_content"/>
+
+    </LinearLayout>
     <Button
             android:id="@+id/btn_schedule_job"
             android:layout_width="wrap_content"
