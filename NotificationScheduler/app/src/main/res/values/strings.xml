@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Notification Scheduler</string>
+    <string name="tv_network_options_text">Network Type Required:</string>
+    <string name="rb_no_network_text">None</string>
+    <string name="rb_any_network_text">Any</string>
+    <string name="rb_wifi_network_text">Wifi</string>
+    <string name="btn_schedule_job_text">Schedule Job</string>
+    <string name="btn_cancel_jobs_text">Cancel Jobs</string>
 </resources>

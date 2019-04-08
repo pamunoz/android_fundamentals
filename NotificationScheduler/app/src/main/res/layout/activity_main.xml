@@ -1,19 +1,60 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
-        xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:padding="16dp"
+        android:orientation="vertical"
         tools:context=".MainActivity">
 
     <TextView
+            android:id="@+id/tv_network_options_label"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hello World!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
+            android:text="@string/tv_network_options_text"
+            android:layout_margin="4dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Subhead"/>
+    <RadioGroup
+            android:id="@+id/rg_network_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_margin="4dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RadioButton
+                android:id="@+id/rb_no_network"
+                android:text="@string/rb_no_network_text"
+                android:checked="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <RadioButton
+                android:id="@+id/rb_any_network"
+                android:text="@string/rb_any_network_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+        <RadioButton
+                android:id="@+id/rb_wifi_network"
+                android:text="@string/rb_wifi_network_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+    </RadioGroup>
+    <Button
+            android:id="@+id/btn_schedule_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_schedule_job_text"
+            android:onClick="scheduleJob"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="4dp"/>
+    <Button
+            android:id="@+id/btn_cancel_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/btn_cancel_jobs_text"
+            android:onClick="cancelJobs"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="4dp"/>
+
+</LinearLayout>
