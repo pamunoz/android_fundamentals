@@ -47,6 +47,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun cancelJobs(view: View) {
-
+        if (mJobScheduler != null) {
+            mJobScheduler?.cancelAll()
+            mJobScheduler = null
+            Toast.makeText(this, "Jobs cancelled", Toast.LENGTH_SHORT).show();
+        }
     }
 }
