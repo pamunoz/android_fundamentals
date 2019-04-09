@@ -18,6 +18,7 @@ package com.example.android.droidcafeinput
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import android.support.design.widget.FloatingActionButton
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.Toolbar
@@ -58,6 +59,13 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(EXTRA_MESSAGE, mOrderMessage)
             startActivity(intent)
         }
+
+        /**The default values are already specified in the XML file with the
+         * android:defaultValue attribute, but the above statements ensure that
+         * the SharedPreferences file is properly initialized with the default values. */
+        PreferenceManager.setDefaultValues(this, R.xml.pref_general, false)
+        PreferenceManager.setDefaultValues(this, R.xml.pref_notification, false)
+        PreferenceManager.setDefaultValues(this, R.xml.pref_account, false)
     }
 
     /**

@@ -53,13 +53,13 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="kt" value="388" />
+          <entry key="kt" value="442" />
           <entry key="xml" value="7" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="Kotlin" value="388" />
+          <entry key="Kotlin" value="442" />
           <entry key="XML" value="7" />
         </counts>
       </usages-collector>
@@ -70,13 +70,15 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/droidcafeinput/MainActivity.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="551">
-              <caret line="125" column="75" selection-start-line="125" selection-start-column="75" selection-end-line="125" selection-end-column="75" />
+            <state relative-caret-position="296">
+              <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
               <folding>
                 <element signature="e#644#1006#0" expanded="true" />
                 <element signature="e#1651#1879#0" />
+                <element signature="e#2096#2297#2" />
                 <element signature="e#2309#2490#0" />
                 <element signature="e#2716#2864#0" />
+                <element signature="e#2929#4006#0" />
                 <element signature="e#3301#3331#1" expanded="true" />
                 <element signature="e#3436#3469#1" expanded="true" />
                 <element signature="e#3572#3603#1" expanded="true" />
@@ -2774,13 +2776,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/android/droidcafeinput/MainActivity.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="551">
-          <caret line="125" column="75" selection-start-line="125" selection-start-column="75" selection-end-line="125" selection-end-column="75" />
+        <state relative-caret-position="296">
+          <caret line="62" column="67" selection-start-line="62" selection-start-column="67" selection-end-line="62" selection-end-column="67" />
           <folding>
             <element signature="e#644#1006#0" expanded="true" />
             <element signature="e#1651#1879#0" />
+            <element signature="e#2096#2297#2" />
             <element signature="e#2309#2490#0" />
             <element signature="e#2716#2864#0" />
+            <element signature="e#2929#4006#0" />
             <element signature="e#3301#3331#1" expanded="true" />
             <element signature="e#3436#3469#1" expanded="true" />
             <element signature="e#3572#3603#1" expanded="true" />
