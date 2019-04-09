@@ -113,30 +113,26 @@ class MainActivity : AppCompatActivity() {
     /**
      * Shows a message that the donut image was clicked.
      */
-    fun showDonutOrder(view: View) {
-        mOrderMessage = getString(R.string.donut_order_message)
-        toast(R.string.donut_order_message)
-    }
+    fun showDonutOrder(view: View) = showOrder(R.string.donut_order_message)
 
     /**
      * Shows a message that the ice cream sandwich image was clicked.
      */
-    fun showIceCreamOrder(view: View) {
-        mOrderMessage = getString(R.string.ice_cream_order_message)
-        toast(R.string.ice_cream_order_message)
-    }
+    fun showIceCreamOrder(view: View) = showOrder(R.string.ice_cream_order_message)
 
     /**
      * Shows a message that the froyo image was clicked.
      */
-    fun showFroyoOrder(view: View) {
-        mOrderMessage = getString(R.string.froyo_order_message)
-        toast(R.string.froyo_order_message)
-    }
+    fun showFroyoOrder(view: View) = showOrder(R.string.froyo_order_message)
 
     companion object {
         // Tag for the intent extra.
         val EXTRA_MESSAGE = "com.example.android.droidcafeinput.extra.MESSAGE"
+    }
+
+    private fun showOrder(stringId: Int) {
+        mOrderMessage = getString(stringId)
+        toast(stringId)
     }
 
 }
