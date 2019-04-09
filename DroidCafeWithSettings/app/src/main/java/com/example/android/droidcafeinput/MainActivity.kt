@@ -88,20 +88,19 @@ class MainActivity : AppCompatActivity() {
                 return true
             }
             R.id.action_status -> {
-                displayToast(getString(R.string.action_status_message))
+                toast(R.string.action_status_message)
                 return true
             }
             R.id.action_favorites -> {
-                displayToast(getString(R.string.action_favorites_message))
+                toast(R.string.action_favorites_message)
                 return true
             }
             R.id.action_contact -> {
-                displayToast(getString(R.string.action_contact_message))
+                toast(R.string.action_contact_message)
                 return true
             }
             R.id.action_settings -> {
-                val intent = Intent(this@MainActivity,
-                        SettingsActivity::class.java)
+                val intent = Intent(this@MainActivity, SettingsActivity::class.java)
                 startActivity(intent)
                 return true
             }
@@ -110,22 +109,13 @@ class MainActivity : AppCompatActivity() {
         return super.onOptionsItemSelected(item)
     }
 
-    /**
-     * Displays a Toast with the message.
-     *
-     * @param message Message to display.
-     */
-    fun displayToast(message: String) {
-        Toast.makeText(applicationContext, message,
-                Toast.LENGTH_SHORT).show()
-    }
 
     /**
      * Shows a message that the donut image was clicked.
      */
     fun showDonutOrder(view: View) {
         mOrderMessage = getString(R.string.donut_order_message)
-        displayToast(mOrderMessage.toString())
+        toast(R.string.donut_order_message)
     }
 
     /**
@@ -133,7 +123,7 @@ class MainActivity : AppCompatActivity() {
      */
     fun showIceCreamOrder(view: View) {
         mOrderMessage = getString(R.string.ice_cream_order_message)
-        displayToast(mOrderMessage.toString())
+        toast(R.string.ice_cream_order_message)
     }
 
     /**
@@ -141,11 +131,10 @@ class MainActivity : AppCompatActivity() {
      */
     fun showFroyoOrder(view: View) {
         mOrderMessage = getString(R.string.froyo_order_message)
-        displayToast(mOrderMessage.toString())
+        toast(R.string.froyo_order_message)
     }
 
     companion object {
-
         // Tag for the intent extra.
         val EXTRA_MESSAGE = "com.example.android.droidcafeinput.extra.MESSAGE"
     }
