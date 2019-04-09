@@ -25,6 +25,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
+import kotlinx.android.synthetic.main.activity_main.*
 
 /**
  * This app demonstrates images used as buttons and a floating action button to
@@ -49,10 +50,8 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
-        val fab = findViewById<FloatingActionButton>(R.id.fab)
         fab.setOnClickListener {
             val intent = Intent(this@MainActivity,
                     OrderActivity::class.java)
@@ -98,6 +97,12 @@ class MainActivity : AppCompatActivity() {
             }
             R.id.action_contact -> {
                 displayToast(getString(R.string.action_contact_message))
+                return true
+            }
+            R.id.action_settings -> {
+                val intent = Intent(this@MainActivity,
+                        SettingsActivity::class.java)
+                startActivity(intent)
                 return true
             }
         }// Do nothing
