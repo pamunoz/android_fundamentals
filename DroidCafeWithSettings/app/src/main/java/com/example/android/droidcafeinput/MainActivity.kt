@@ -66,6 +66,9 @@ class MainActivity : AppCompatActivity() {
         PreferenceManager.setDefaultValues(this, R.xml.pref_general, false)
         PreferenceManager.setDefaultValues(this, R.xml.pref_notification, false)
         PreferenceManager.setDefaultValues(this, R.xml.pref_account, false)
+
+        val marketPref = preferences.getString("sync_frequency", "-1")
+        toast(marketPref)
     }
 
     /**
