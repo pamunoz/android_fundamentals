@@ -2,11 +2,13 @@ package com.example.appwithsettings
 
 import android.content.Intent
 import android.os.Bundle
-import android.preference.PreferenceManager
+
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.Toast
+import androidx.preference.PreferenceManager
 
 import kotlinx.android.synthetic.main.activity_main.*
 
@@ -22,6 +24,8 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
         PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
+        val switchPref = defaultSharedPreferences.getBoolean(SettingsActivity.KEY_PREF_EXAMPLE_SWITCH, false)
+        Toast.makeText(this, switchPref.toString(), Toast.LENGTH_SHORT).show()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

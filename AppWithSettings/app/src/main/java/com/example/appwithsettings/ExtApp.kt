@@ -12,5 +12,5 @@ fun AppCompatActivity.displayPreferenceFragmentCompat(fragment: PreferenceFragme
         .commit()
 }
 
-val Context.defualtSharedPreferences: SharedPreferences
+val Context.defaultSharedPreferences: SharedPreferences
     get() = PreferenceManager.getDefaultSharedPreferences(this)
