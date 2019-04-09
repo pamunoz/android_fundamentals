@@ -1,10 +1,9 @@
 package com.example.appwithsettings
 
-import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
-import androidx.fragment.app.Fragment
+import androidx.preference.PreferenceFragmentCompat
 
-fun AppCompatActivity.displaySupportFragment(fragment: Fragment) {
+fun AppCompatActivity.displayPreferenceFragmentCompat(fragment: PreferenceFragmentCompat) {
     this.supportFragmentManager.beginTransaction()
         .replace(android.R.id.content, fragment)
         .commit()
