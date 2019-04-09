@@ -2,6 +2,7 @@ package com.example.appwithsettings
 
 import android.content.Intent
 import android.os.Bundle
+import android.preference.PreferenceManager
 import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
@@ -20,7 +21,7 @@ class MainActivity : AppCompatActivity() {
             Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show()
         }
-
+        PreferenceManager.setDefaultValues(this, R.xml.preferences, false)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
