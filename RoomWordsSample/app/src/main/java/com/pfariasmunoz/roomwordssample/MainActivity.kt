@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { 
+        fab.setOnClickListener {
             val newWordIntent = Intent(this, NewWordActivity::class.java)
             startActivityForResult(newWordIntent, NEW_WORD_ACTIVITY_REQUEST_CODE)
         }
