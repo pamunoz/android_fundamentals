@@ -7,7 +7,12 @@ import com.pfariasmunoz.roomwordssample.db.Word
 
 class WordViewModel(application: Application) : AndroidViewModel(application) {
     private val mWordRepository: WordRepository = WordRepository(application)
-    private val mAllWords: LiveData<List<Word>> = mWordRepository.allWords
+    private val mAllWords: LiveData<List<Word>>
+    init {
+        mAllWords = mWordRepository.allWords
+    }
 
+    val allwords = mAllWords
+    fun insert(word: Word) = mWordRepository.insert(word)
 
 }
