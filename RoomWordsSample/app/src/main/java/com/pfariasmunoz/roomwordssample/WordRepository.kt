@@ -26,7 +26,7 @@ class WordRepository(application: Application) {
     companion object {
         private class InsertAsyncTask(private val dao: WordDao): AsyncTask<Word, Unit, Unit>() {
             override fun doInBackground(vararg params: Word) {
-                dao.intert(params[0])
+                dao.insert(params[0])
             }
         }
     }

@@ -9,7 +9,7 @@ import androidx.room.Query
 @Dao
 interface WordDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    fun intert(word: Word)
+    fun insert(word: Word)
     @Query("DELETE FROM word_table")
     fun deleteAll()
     @Query("SELECT * FROM word_table ORDER BY word ASC")

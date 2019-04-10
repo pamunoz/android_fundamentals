@@ -53,7 +53,7 @@ abstract class WordRoomDatabase: RoomDatabase() {
                 // when it is first created
                 mDao.deleteAll()
                 for (word in words) {
-                    mDao.intert(Word(word))
+                    mDao.insert(Word(word))
                 }
             }
 
