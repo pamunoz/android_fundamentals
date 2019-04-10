@@ -1,9 +1,11 @@
 package com.pfariasmunoz.roomwordssample.db
 
 import android.content.Context
+import android.os.AsyncTask
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.sqlite.db.SupportSQLiteDatabase
 
 @Database(entities = [Word::class], version = 1, exportSchema = false)
 abstract class WordRoomDatabase: RoomDatabase() {
@@ -22,11 +24,40 @@ abstract class WordRoomDatabase: RoomDatabase() {
                             // if no Migration object.
                             // Migration is not part of this practical.
                             .fallbackToDestructiveMigration()
+                            .addCallback(sRoomDatabaseCallback)
                             .build()
                     }
                 }
             }
             return INSTANCE
         }
+
+        private val sRoomDatabaseCallback: RoomDatabase.Callback = object : RoomDatabase.Callback() {
+            override fun onOpen(db: SupportSQLiteDatabase) {
+                super.onOpen(db)
+                PopulateDbAsync(INSTANCE!!).execute()
+            }
+        }
+
+        /**
+         * Populate the database in the background.
+         */
+        private class PopulateDbAsync(db: WordRoomDatabase) : AsyncTask<Unit, Unit, Unit>() {
+
+            private val mDao: WordDao = db.wordDao()
+            private val words = arrayOf("dolphin", "crocodile", "cobra")
+
+            override fun doInBackground(vararg params: Unit?) {
+                // Start the app with a clean database every time.
+                // Not needed if you only populate the database
+                // when it is first created
+                mDao.deleteAll()
+                for (word in words) {
+                    mDao.intert(Word(word))
+                }
+            }
+
+        }
     }
+
 }
