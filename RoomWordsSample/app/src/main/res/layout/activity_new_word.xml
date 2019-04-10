@@ -7,13 +7,13 @@
               android:padding="24dp">
 
     <EditText
-            android:id="@+id/edit_word"
+            android:id="@+id/et_edit_word"
             style="@style/text_view_style"
             android:hint="@string/hint_word"
             android:inputType="textAutoComplete" />
 
     <Button
-            android:id="@+id/button_save"
+            android:id="@+id/btn_save"
             style="@style/button_style"
             android:text="@string/button_save" />
 </LinearLayout>
