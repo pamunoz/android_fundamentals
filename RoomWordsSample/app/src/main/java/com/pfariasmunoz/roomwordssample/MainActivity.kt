@@ -28,9 +28,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener { 
+            val newWordIntent = Intent(this, NewWordActivity::class.java)
+            startActivityForResult(newWordIntent, NEW_WORD_ACTIVITY_REQUEST_CODE)
         }
         val wordAdapter = WordListAdapter(this@MainActivity)
         mViewModel = ViewModelProviders.of(this ).get(WordViewModel::class.java).apply {
