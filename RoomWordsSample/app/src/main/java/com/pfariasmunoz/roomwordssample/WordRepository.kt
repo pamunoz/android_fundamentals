@@ -17,7 +17,7 @@ class WordRepository(application: Application) {
         mAllWords = mWordDao.getAllWords()
     }
 
-    val allWords: LiveData<List<Word>>? = mAllWords
+    val allWords: LiveData<List<Word>> = mAllWords
 
     fun insert(word: Word) {
         InsertAsyncTask(mWordDao).execute(word)
