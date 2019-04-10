@@ -25,12 +25,11 @@ class WordListAdapter(val context: Context) : RecyclerView.Adapter<WordListAdapt
     override fun getItemCount() = words?.size ?: 0
 
     override fun onBindViewHolder(holder: WordViewHolder, position: Int) {
-        when(words) {
-            null -> {
-                val current = words?.get(position)
-                holder.wordView.text = current?.word
-            }
-            else -> holder.wordView.text = context.resources.getString(R.string.no_word)
+        if (words != null) {
+            val current = words?.get(position)
+            holder.wordView.text = current?.word
+        } else {
+            holder.wordView.text = context.resources.getString(R.string.no_word)
         }
     }
 

@@ -45,7 +45,7 @@ abstract class WordRoomDatabase: RoomDatabase() {
         private class PopulateDbAsync(db: WordRoomDatabase) : AsyncTask<Unit, Unit, Unit>() {
 
             private val mDao: WordDao = db.wordDao()
-            private val words = arrayOf("dolphin", "crocodile", "cobra")
+            private val words = arrayListOf("dolphin", "crocodile", "cobra")
 
             override fun doInBackground(vararg params: Unit?) {
                 // Start the app with a clean database every time.

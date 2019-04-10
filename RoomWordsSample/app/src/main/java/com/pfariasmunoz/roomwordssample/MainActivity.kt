@@ -5,6 +5,8 @@ import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
+import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 
 import kotlinx.android.synthetic.main.activity_main.*
@@ -22,8 +24,14 @@ class MainActivity : AppCompatActivity() {
                 .setAction("Action", null).show()
         }
 
+        val wordAdapter = WordListAdapter(this@MainActivity)
+
+        ViewModelProviders.of(this ).get(WordViewModel::class.java).allwords.observe(this, Observer {
+            wordAdapter.words = it
+        })
+
         rv_words.apply {
-            adapter = WordListAdapter(this@MainActivity)
+            adapter = wordAdapter
             layoutManager = LinearLayoutManager(this@MainActivity)
         }
     }
