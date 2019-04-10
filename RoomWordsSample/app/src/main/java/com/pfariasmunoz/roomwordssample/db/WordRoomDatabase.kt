@@ -17,7 +17,12 @@ abstract class WordRoomDatabase: RoomDatabase() {
                 synchronized(WordRoomDatabase::class.java) {
                     if (INSTANCE == null) {
                         // Create database here
-                        INSTANCE = Room.databaseBuilder(context.applicationContext, WordRoomDatabase::class.java, "word_database").build()
+                        INSTANCE = Room.databaseBuilder(context.applicationContext, WordRoomDatabase::class.java, "word_database")
+                            // Wipes and rebuilds instead of migrating
+                            // if no Migration object.
+                            // Migration is not part of this practical.
+                            .fallbackToDestructiveMigration()
+                            .build()
                     }
                 }
             }
