@@ -11,7 +11,7 @@
         tools:context=".MainActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerview"
+            android:id="@+id/rv_words"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_margin="16dp"
