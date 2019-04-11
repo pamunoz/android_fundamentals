@@ -3,7 +3,6 @@ package com.pfariasmunoz.roomwordssample
 import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import androidx.appcompat.app.AppCompatActivity;
 import android.view.Menu
 import android.view.MenuItem
@@ -34,7 +33,7 @@ class MainActivity : AppCompatActivity() {
         }
         val wordAdapter = WordListAdapter(this@MainActivity)
         mViewModel = ViewModelProviders.of(this ).get(WordViewModel::class.java).apply {
-            allwords.observe(this@MainActivity, Observer {
+            allWords.observe(this@MainActivity, Observer {
                 wordAdapter.words = it
             })
         }
