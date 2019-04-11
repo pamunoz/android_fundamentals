@@ -12,7 +12,12 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
         mAllWords = mWordRepository.allWords
     }
 
-    val allwords = mAllWords
+    val allWords = mAllWords
+
     fun insert(word: Word) = mWordRepository.insert(word)
+
+    fun deleteAll() = mWordRepository.deleteAll()
+
+    fun deleteWord(word: Word) = mWordRepository.deleteWord(word)
 
 }
