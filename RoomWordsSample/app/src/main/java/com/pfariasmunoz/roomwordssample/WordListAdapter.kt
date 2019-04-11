@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.pfariasmunoz.roomwordssample.db.Word
 import kotlinx.android.synthetic.main.recyclerview_item.view.*
 
-class WordListAdapter(val context: Context) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
+class WordListAdapter(private val context: Context) : RecyclerView.Adapter<WordListAdapter.WordViewHolder>() {
 
     var words: List<Word>? = null
         set(value) {
@@ -32,6 +32,8 @@ class WordListAdapter(val context: Context) : RecyclerView.Adapter<WordListAdapt
             holder.wordView.text = context.resources.getString(R.string.no_word)
         }
     }
+
+    fun getWordAtPosition(position: Int): Word? = words?.get(position)
 
     inner class WordViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         val wordView: TextView = itemView.tv_word
