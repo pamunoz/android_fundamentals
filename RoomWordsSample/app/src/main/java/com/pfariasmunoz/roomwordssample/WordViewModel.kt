@@ -13,7 +13,9 @@ class WordViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     val allWords = mAllWords
+
     fun insert(word: Word) = mWordRepository.insert(word)
+
     fun deleteAll() = mWordRepository.deleteAll()
 
 }

@@ -54,7 +54,13 @@ class MainActivity : AppCompatActivity() {
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         return when (item.itemId) {
-            R.id.action_settings -> true
+            R.id.clear_data -> {
+                // Add a toast just for confirmation
+                Toast.makeText(this, "Clearing the data...", Toast.LENGTH_SHORT).show()
+                // Delete the existing data
+                mViewModel?.deleteAll()
+                return true
+            }
             else -> super.onOptionsItemSelected(item)
         }
     }
