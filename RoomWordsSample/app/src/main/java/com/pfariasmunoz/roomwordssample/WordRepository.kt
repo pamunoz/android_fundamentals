@@ -19,14 +19,20 @@ class WordRepository(application: Application) {
 
     val allWords: LiveData<List<Word>> = mAllWords
 
-    fun insert(word: Word) {
-        InsertAsyncTask(mWordDao).execute(word)
-    }
+    fun insert(word: Word): AsyncTask<Word, Unit, Unit> = InsertAsyncTask(mWordDao).execute(word)
+
+    fun deleteAll() = DeleteAllWordsAsyncTask(mWordDao).execute()
 
     companion object {
         private class InsertAsyncTask(private val dao: WordDao): AsyncTask<Word, Unit, Unit>() {
             override fun doInBackground(vararg params: Word) {
                 dao.insert(params[0])
+            }
+        }
+
+        private class DeleteAllWordsAsyncTask(private val dao: WordDao) : AsyncTask<Unit, Unit, Unit>() {
+            override fun doInBackground(vararg params: Unit?) {
+                dao.deleteAll()
             }
         }
     }
