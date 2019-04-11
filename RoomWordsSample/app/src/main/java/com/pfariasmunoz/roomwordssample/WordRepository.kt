@@ -21,19 +21,21 @@ class WordRepository(application: Application) {
 
     fun insert(word: Word): AsyncTask<Word, Unit, Unit> = InsertAsyncTask(mWordDao).execute(word)
 
-    fun deleteAll() = DeleteAllWordsAsyncTask(mWordDao).execute()
+    fun deleteAll(): AsyncTask<Unit, Unit, Unit> = DeleteAllWordsAsyncTask(mWordDao).execute()
+
+    fun deleteWord(word: Word): AsyncTask<Word, Unit, Unit> = DeleteWordAsyncTask(mWordDao).execute(word)
 
     companion object {
         private class InsertAsyncTask(private val dao: WordDao): AsyncTask<Word, Unit, Unit>() {
-            override fun doInBackground(vararg params: Word) {
-                dao.insert(params[0])
-            }
+            override fun doInBackground(vararg params: Word?) = params[0]?.let { dao.insert(it) }
         }
 
         private class DeleteAllWordsAsyncTask(private val dao: WordDao) : AsyncTask<Unit, Unit, Unit>() {
-            override fun doInBackground(vararg params: Unit?) {
-                dao.deleteAll()
-            }
+            override fun doInBackground(vararg params: Unit?) = dao.deleteAll()
+        }
+
+        private class DeleteWordAsyncTask(private val dao: WordDao) : AsyncTask<Word, Unit, Unit>() {
+            override fun doInBackground(vararg params: Word?) = params[0]?.let { dao.deleteWord(it) }
         }
     }
 
